@@ -44,6 +44,10 @@ jobs:
             - name: Run tests
               run: npm test
 
+            # Fix Prettier issues
+            - name: Fix Prettier issues
+              run: npm run prettier:fix
+
             # Generate a new version and push tags
             - name: Generate a new version and push tags
               run: HUSKY_SKIP_HOOKS=1 npm run release

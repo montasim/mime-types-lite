@@ -9,12 +9,15 @@
   "license": "CC BY-NC-ND 4.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/montasim/constants-mime-types.git"
+    "url": "git+https://github.com/montasim/constants-mime-types.git"
   },
   "bugs": {
     "url": "https://github.com/montasim/constants-mime-types/issues"
   },
   "homepage": "https://github.com/montasim/constants-mime-types",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }

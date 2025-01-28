@@ -97,3 +97,6 @@ eslint.config.mjs
 
 # Git ignore file
 .gitignore
+
+# Editor configuration files
+.idea

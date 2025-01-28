@@ -155,7 +155,6 @@ yarn-error.log*
 
 # Test code coverage reports.
 /coverage
-/test/__snapshots__
 
 
 ####################################################

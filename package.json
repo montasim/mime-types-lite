@@ -39,7 +39,6 @@
     "access": "public"
   },
   "scripts": {
-    "main": "dist/index.js",
     "build": "eslint . --fix && prettier . --write && tsc",
     "test": "jest",
     "eslint:check": "eslint .",

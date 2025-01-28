@@ -39,7 +39,7 @@
   "branch": "main",
   "releaseCommitMessageFormat": "chore(release): {{currentTag}}",
   "scripts": {
-    "postbump": "prettier CHANGELOG.md --write",
+    "postbump": "prettier . --write",
     "postchangelog": "yarn build",
     "precommit": "yarn test"
   }

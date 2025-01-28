@@ -37,10 +37,8 @@
     }
   ],
   "branch": "main",
-  "releaseCommitMessageFormat": "chore(release): {{currentTag}}",
+  "releaseCommitMessageFormat": "chore(release): {{currentTag}} - Automated version bump",
   "scripts": {
-    "postbump": "prettier . --write",
-    "postchangelog": "yarn build",
-    "precommit": "yarn test"
+    "postbump": "prettier . --write"
   }
 }

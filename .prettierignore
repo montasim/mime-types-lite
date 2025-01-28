@@ -143,6 +143,8 @@ next-env.d.ts
 # Private keys and sensitive files.
 *.pem
 
+CHANGELOG.md
+
 
 ####################################################
 # LOCAL FILE UPLOADS

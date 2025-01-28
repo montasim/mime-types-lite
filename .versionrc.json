@@ -21,11 +21,6 @@
       "hidden": false
     },
     {
-      "type": "style",
-      "section": "Styles",
-      "hidden": true
-    },
-    {
       "type": "refactor",
       "section": "Code Refactoring",
       "hidden": false
@@ -39,27 +34,13 @@
       "type": "test",
       "section": "Tests",
       "hidden": true
-    },
-    {
-      "type": "build",
-      "section": "Build System",
-      "hidden": false
-    },
-    {
-      "type": "ci",
-      "section": "Continuous Integration",
-      "hidden": false
     }
   ],
   "branch": "main",
-  "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
-  "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
-  "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}",
   "releaseCommitMessageFormat": "chore(release): {{currentTag}}",
-  "skip": {
-    "bump": false,
-    "changelog": false,
-    "commit": false,
-    "tag": false
+  "scripts": {
+    "postbump": "prettier CHANGELOG.md --write",
+    "postchangelog": "yarn build",
+    "precommit": "yarn test"
   }
 }

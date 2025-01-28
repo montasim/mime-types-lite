@@ -1,5 +1,5 @@
 {
-  "name": "@constants/mime-types",
+  "name": "constants-mime-types",
   "version": "1.0.0",
   "description": "A collection of common MIME types for use in applications.",
   "main": "index.js",

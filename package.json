@@ -1,0 +1,21 @@
+{
+  "name": "@constants/mime-types",
+  "version": "1.0.0",
+  "description": "A collection of common MIME types for use in applications.",
+  "main": "index.js",
+  "type": "module",
+  "keywords": ["MIME types", "constants", "MIME", "file types"],
+  "author": "Mohammad Montasim-Al-Mamun Shuvo",
+  "license": "CC BY-NC-ND 4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/montasim/constants-mime-types.git"
+  },
+  "bugs": {
+    "url": "https://github.com/montasim/constants-mime-types/issues"
+  },
+  "homepage": "https://github.com/montasim/constants-mime-types",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

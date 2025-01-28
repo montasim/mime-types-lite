@@ -2,10 +2,31 @@
   "name": "mime-types-lite",
   "version": "1.0.0",
   "description": "A collection of common MIME types for use in applications.",
-  "main": "index.js",
+  "private": true,
   "type": "module",
-  "keywords": ["MIME types", "constants", "MIME", "file types"],
-  "author": "Mohammad Montasim-Al-Mamun Shuvo",
+  "main": "src/index.ts",
+  "engines": {
+    "node": ">=23.x",
+    "npm": ">=10.x"
+  },
+  "keywords": [
+    "MIME types",
+    "constants",
+    "MIME",
+    "file types"
+  ],
+  "author": {
+    "name": "Mohammad Montasim -Al- Mamun Shuvo",
+    "portfolio": "https://montasim-dev.web.app/",
+    "contact": {
+      "email": "montasimmamun@gmail.com",
+      "mobile": "+8801722815469"
+    },
+    "social": {
+      "linkedIn": "https://www.linkedin.com/in/montasim",
+      "gitHub": "https://github.com/montasim"
+    }
+  },
   "license": "CC BY-NC-ND 4.0",
   "repository": {
     "type": "git",
@@ -19,6 +40,28 @@
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "main": "dist/index.js",
+    "build": "eslint . --fix && prettier . --write && tsc",
+    "test": "jest",
+    "eslint:check": "eslint .",
+    "eslint:fix": "eslint . --fix",
+    "prettier:check": "prettier . --check",
+    "prettier:fix": "prettier . --write",
+    "lint:fix": "eslint . --fix && prettier . --write"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/jest": "^29.5.14",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "eslint": "^9.19.0",
+    "eslint-plugin-jest": "^28.10.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-security": "^3.0.1",
+    "globals": "^15.14.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2"
   }
 }

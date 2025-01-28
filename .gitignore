@@ -5,7 +5,7 @@
 # Version: 1.0.0
 # License: CC BY-NC-ND 4.0
 #
-# Author: Mohammad Montasim-Al-Mamun Shuvo
+# Author: Mohammad Montasim -Al- Mamun Shuvo
 # Created: 2025-01-28
 # Contact Email: montasimmamun@gmail.com
 # Contact GitHub: https://github.com/montasim
@@ -83,6 +83,9 @@ package-lock.json
 # Generic folder for production deployments.
 .out/
 
+# Generic folder for production deployments.
+/dist
+
 
 ####################################################
 # LOG FILES
@@ -155,6 +158,7 @@ yarn-error.log*
 
 # Test code coverage reports.
 /coverage
+/test/__snapshots__
 
 
 ####################################################

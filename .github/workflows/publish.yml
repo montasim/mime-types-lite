@@ -19,8 +19,12 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: '23' # Specify the Node.js version
+                  node-version: '18' # Use a stable LTS version of Node.js
                   cache: 'npm'
+
+            # Configure npm authentication
+            - name: Configure npm
+              run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
             # Install dependencies
             - name: Install dependencies
@@ -36,7 +40,5 @@ jobs:
 
             # Publish to npm
             - name: Publish to NPM
-              if: success() # This step runs only if the previous steps were successful
+              if: success()
               run: npm publish --access public
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

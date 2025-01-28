@@ -19,7 +19,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: '18' # Use a stable LTS version of Node.js
+                  node-version: '20' # Use a stable LTS version of Node.js
                   cache: 'npm'
 
             # Configure npm authentication

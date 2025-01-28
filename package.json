@@ -2,9 +2,8 @@
   "name": "mime-types-lite",
   "version": "1.0.0",
   "description": "A collection of common MIME types for use in applications.",
-  "private": true,
   "type": "module",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "engines": {
     "node": ">=23.x",
     "npm": ">=10.x"

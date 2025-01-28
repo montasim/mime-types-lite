@@ -1,5 +1,5 @@
 {
-  "name": "constants-mime-types",
+  "name": "mime-types-lite",
   "version": "1.0.0",
   "description": "A collection of common MIME types for use in applications.",
   "main": "index.js",
@@ -9,12 +9,12 @@
   "license": "CC BY-NC-ND 4.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/montasim/constants-mime-types.git"
+    "url": "git+https://github.com/montasim/mime-types-lite.git"
   },
   "bugs": {
-    "url": "https://github.com/montasim/constants-mime-types/issues"
+    "url": "https://github.com/montasim/mime-types-lite/issues"
   },
-  "homepage": "https://github.com/montasim/constants-mime-types",
+  "homepage": "https://github.com/montasim/mime-types-lite",
   "publishConfig": {
     "access": "public"
   },

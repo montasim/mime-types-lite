@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A collection of common MIME types for use in applications.",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "build/index.js",
   "engines": {
     "node": ">=23.x",
     "npm": ">=10.x"
@@ -39,9 +39,8 @@
     "access": "public"
   },
   "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
+    "build",
+    "README.md"
   ],
   "scripts": {
     "build": "eslint . --fix && prettier . --write && tsc",

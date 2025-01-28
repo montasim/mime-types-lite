@@ -80,9 +80,6 @@
 # Generic folder for production deployments.
 .out/
 
-# Generic folder for production deployments.
-/dist
-
 
 ####################################################
 # LOG FILES

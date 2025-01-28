@@ -125,7 +125,6 @@ export default [
             '.yarn/**', // Ignore Yarn cache, configuration, and installation-related files
             'node_modules/**', // Ignore third-party dependency files (handled by package manager)
             'build/**', // Ignore build output directory (e.g., production-ready files)
-            'dist/**', // Ignore output directory for compiled files
             'logs/**', // Ignore application log files (e.g., error or debug logs)
             'yarn.lock', // Ignore the Yarn lock file (used for dependency resolution)
         ],

@@ -49,8 +49,11 @@ node_modules/
 # as they are not necessary for the end users. This helps reduce
 # the size of the published package.
 
-test/           # Unit or integration test files
-jest.config.ts  # Jest configuration file for testing
+# Unit or integration test files
+test/
+
+# Jest configuration file for testing
+jest.config.ts
 
 
 ####################################################
@@ -94,3 +97,15 @@ eslint.config.mjs
 
 # Editor configuration files
 .idea
+
+# Lint-staged configuration file
+.lintstagedrc
+
+# Commitlint configuration file
+commitlint.config.mjs
+
+# Husky configuration file
+.husky
+
+# GitHub Actions workflow files
+.github/

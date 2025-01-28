@@ -5,7 +5,7 @@
   "type": "module",
   "main": "build/index.js",
   "engines": {
-    "node": ">=23.x",
+    "node": ">=20.x",
     "npm": ">=10.x"
   },
   "keywords": [
@@ -49,9 +49,17 @@
     "eslint:fix": "eslint . --fix",
     "prettier:check": "prettier . --check",
     "prettier:fix": "prettier . --write",
-    "lint:fix": "eslint . --fix && prettier . --write"
+    "lint:fix": "eslint . --fix && prettier . --write",
+    "prepare": "husky install",
+    "commitlint": "commitlint --edit",
+    "release": "standard-version && git push --follow-tags",
+    "release:minor": "standard-version --release-as minor && git push --follow-tags",
+    "release:major": "standard-version --release-as major && git push --follow-tags",
+    "release:patch": "standard-version --release-as patch && git push --follow-tags"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.19.0",
     "@types/jest": "^29.5.14",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
@@ -61,8 +69,11 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-security": "^3.0.1",
     "globals": "^15.14.0",
+    "husky": "^9.1.4",
     "jest": "^29.7.0",
+    "lint-staged": "^15.2.9",
     "prettier": "^3.3.3",
+    "standard-version": "^9.5.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2"
   }

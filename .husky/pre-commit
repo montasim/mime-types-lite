@@ -1,0 +1,52 @@
+####################################################
+# Pre-commit Script
+####################################################
+# Purpose:
+# This pre-commit script is used to run various code quality checks
+# before a commit is allowed into the repository. This ensures that all
+# committed code adheres to the defined code style and quality standards,
+# preventing common errors and improving the overall health of the codebase.
+
+####################################################
+# RUNNING PRETTIER CHECKS
+####################################################
+# Purpose:
+# Executes the Prettier tool to check that all modified files in the commit
+# adhere to the formatting rules defined in the project's Prettier configuration.
+# This step helps maintain consistent code formatting across the entire project.
+
+echo "Running Prettier checks..."
+npm run prettier:check
+
+# Check the exit code of the Prettier command to determine if it succeeded.
+if [ $? -ne 0 ]; then
+  echo "Prettier checks failed. Please fix the formatting issues and try again."
+  exit 1  # Exit with a non-zero status to abort the commit if Prettier checks fail.
+fi
+
+####################################################
+# RUNNING ESLINT CHECKS
+####################################################
+# Purpose:
+# Executes the ESLint tool to ensure that all JavaScript or TypeScript files
+# meet the project's linting standards. ESLint helps catch syntax errors,
+# anti-patterns, and potential bugs, contributing to cleaner and more reliable code.
+
+#echo "Running ESLint checks..."
+npm run eslint:check
+
+# Check the exit code of the ESLint command to determine if it succeeded.
+if [ $? -ne 0 ]; then
+  echo "ESLint checks failed. Please fix the linting errors and try again."
+  exit 1  # Exit with a non-zero status to abort the commit if ESLint checks fail.
+fi
+
+####################################################
+# FINAL MESSAGE
+####################################################
+# Purpose:
+# If all checks pass without any errors, print a confirmation message
+# indicating successful pre-commit validation. This provides clear feedback
+# that the code changes are ready to be committed.
+
+echo "Pre-commit checks passed."

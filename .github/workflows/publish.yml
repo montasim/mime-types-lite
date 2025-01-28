@@ -1,4 +1,4 @@
-name: Publish to NPM
+name: Build, Test, and Publish to NPM
 
 on:
     push:
@@ -38,7 +38,15 @@ jobs:
             - name: Run tests
               run: npm test
 
+            # Generate a new version and push tags
+            - name: Bump version and push tags
+              run: npm run release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
             # Publish to npm
             - name: Publish to NPM
               if: success()
               run: npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

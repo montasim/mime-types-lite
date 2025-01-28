@@ -55,15 +55,11 @@
   "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
   "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
   "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}",
-  "releaseCommitMessageFormat": "chore(release): release {{currentTag}}",
+  "releaseCommitMessageFormat": "chore(release): {{currentTag}}",
   "skip": {
     "bump": false,
     "changelog": false,
     "commit": false,
     "tag": false
-  },
-  "scripts": {
-    "precommit": "yarn test",
-    "postchangelog": "echo 'Remember to push tags with git push --follow-tags' && yarn build"
   }
 }

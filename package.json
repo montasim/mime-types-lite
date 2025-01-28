@@ -52,7 +52,7 @@
     "lint:fix": "eslint . --fix && prettier . --write",
     "prepare": "husky install",
     "commitlint": "commitlint --edit",
-    "release": "standard-version && git push --follow-tags",
+    "release": "HUSKY_SKIP_HOOKS=1 standard-version && git push --follow-tags",
     "release:minor": "standard-version --release-as minor && git push --follow-tags",
     "release:major": "standard-version --release-as major && git push --follow-tags",
     "release:patch": "standard-version --release-as patch && git push --follow-tags"

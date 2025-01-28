@@ -45,8 +45,8 @@ jobs:
               run: npm test
 
             # Generate a new version and push tags
-            - name: Bump version and push tags
-              run: npm run release
+            - name: Generate a new version and push tags
+              run: HUSKY_SKIP_HOOKS=1 npm run release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

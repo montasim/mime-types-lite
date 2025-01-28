@@ -3,7 +3,7 @@
  * These tests ensure that all MIME types are correctly defined, immutable, and return expected values.
  * It also validates the TypeScript types and checks that invalid keys are not allowed.
  *
- * @module tests/mimeTypesConstants.test
+ * @module tests/mimeTypesLite.test
  * @version 1.0.0
  * @license CC BY-NC-ND 4.0
  *
@@ -15,7 +15,7 @@
 
 import mimeTypesLite, { MimeType } from '../src/index';
 
-describe('mimeTypesConstants', () => {
+describe('mimeTypesLite', () => {
     /**
      * Ensures the MIME types module is defined and immutable.
      */
@@ -32,6 +32,27 @@ describe('mimeTypesConstants', () => {
         expect(mimeTypesLite.MD).toBe('text/markdown');
         expect(mimeTypesLite.TXT).toBe('text/plain');
         expect(mimeTypesLite.CSV).toBe('text/csv');
+        expect(mimeTypesLite.DOC).toBe('application/msword');
+        expect(mimeTypesLite.DOCX).toBe(
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        );
+        expect(mimeTypesLite.XLS).toBe('application/vnd.ms-excel');
+        expect(mimeTypesLite.XLSX).toBe(
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        );
+        expect(mimeTypesLite.PPT).toBe('application/vnd.ms-powerpoint');
+        expect(mimeTypesLite.PPTX).toBe(
+            'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+        );
+        expect(mimeTypesLite.RTF).toBe('application/rtf');
+        expect(mimeTypesLite.EPUB).toBe('application/epub+zip');
+        expect(mimeTypesLite.TEX).toBe('application/x-tex');
+        expect(mimeTypesLite.ODS).toBe(
+            'application/vnd.oasis.opendocument.spreadsheet'
+        );
+        expect(mimeTypesLite.ODT).toBe(
+            'application/vnd.oasis.opendocument.text'
+        );
     });
 
     /**
@@ -45,6 +66,12 @@ describe('mimeTypesConstants', () => {
         expect(mimeTypesLite.BMP).toBe('image/bmp');
         expect(mimeTypesLite.TIFF).toBe('image/tiff');
         expect(mimeTypesLite.SVG).toBe('image/svg+xml');
+        expect(mimeTypesLite.WEBP).toBe('image/webp');
+        expect(mimeTypesLite.HEIC).toBe('image/heic');
+        expect(mimeTypesLite.AVIF).toBe('image/avif');
+        expect(mimeTypesLite.JP2).toBe('image/jp2');
+        expect(mimeTypesLite.PSD).toBe('image/vnd.adobe.photoshop');
+        expect(mimeTypesLite.XCF).toBe('image/x-xcf');
     });
 
     /**
@@ -52,6 +79,13 @@ describe('mimeTypesConstants', () => {
      */
     it('should return correct MIME types for videos', () => {
         expect(mimeTypesLite.MP4).toBe('video/mp4');
+        expect(mimeTypesLite.WEBM).toBe('video/webm');
+        expect(mimeTypesLite.AVI).toBe('video/avi');
+        expect(mimeTypesLite.MPEG).toBe('video/mpeg');
+        expect(mimeTypesLite.MKV).toBe('video/x-matroska');
+        expect(mimeTypesLite.MOV).toBe('video/quicktime');
+        expect(mimeTypesLite.FLV).toBe('video/x-flv');
+        expect(mimeTypesLite.WMV).toBe('video/x-ms-wmv');
     });
 
     /**
@@ -60,6 +94,11 @@ describe('mimeTypesConstants', () => {
     it('should return correct MIME types for audio files', () => {
         expect(mimeTypesLite.MP3).toBe('audio/mpeg');
         expect(mimeTypesLite.WAV).toBe('audio/wav');
+        expect(mimeTypesLite.AAC).toBe('audio/aac');
+        expect(mimeTypesLite.OGG).toBe('audio/ogg');
+        expect(mimeTypesLite.FLAC).toBe('audio/flac');
+        expect(mimeTypesLite.MIDI).toBe('audio/midi');
+        expect(mimeTypesLite.AMR).toBe('audio/amr');
     });
 
     /**
@@ -68,6 +107,10 @@ describe('mimeTypesConstants', () => {
     it('should return correct MIME types for archives', () => {
         expect(mimeTypesLite.ZIP).toBe('application/zip');
         expect(mimeTypesLite.RAR).toBe('application/vnd.rar');
+        expect(mimeTypesLite.TAR).toBe('application/x-tar');
+        expect(mimeTypesLite.GZ).toBe('application/gzip');
+        expect(mimeTypesLite.BZ2).toBe('application/x-bzip2');
+        expect(mimeTypesLite.SEVEN_ZIP).toBe('application/x-7z-compressed');
     });
 
     /**
@@ -79,6 +122,22 @@ describe('mimeTypesConstants', () => {
         expect(mimeTypesLite.JS).toBe('application/javascript');
         expect(mimeTypesLite.CSS).toBe('text/css');
         expect(mimeTypesLite.HTML).toBe('text/html');
+        expect(mimeTypesLite.WASM).toBe('application/wasm');
+        expect(mimeTypesLite.YAML).toBe('application/x-yaml');
+        expect(mimeTypesLite.GRAPHQL).toBe('application/graphql');
+        expect(mimeTypesLite.ICS).toBe('text/calendar');
+        expect(mimeTypesLite.ATOM).toBe('application/atom+xml');
+        expect(mimeTypesLite.RSS).toBe('application/rss+xml');
+    });
+
+    /**
+     * Verifies correct MIME types for font-related keys.
+     */
+    it('should return correct MIME types for fonts', () => {
+        expect(mimeTypesLite.WOFF).toBe('font/woff');
+        expect(mimeTypesLite.WOFF2).toBe('font/woff2');
+        expect(mimeTypesLite.TTF).toBe('font/ttf');
+        expect(mimeTypesLite.OTF).toBe('font/otf');
     });
 
     /**

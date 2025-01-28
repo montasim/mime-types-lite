@@ -71,12 +71,6 @@ tsconfig.json
 # Exclude miscellaneous files that are not essential for the npm package,
 # such as local or development-specific configuration files.
 
-# NPM lock file for dependency resolution
-package-lock.json
-
-# Yarn lock file for dependency resolution
-yarn.lock.json
-
 # NPM configuration file
 .npmrc
 

@@ -33,4 +33,4 @@
 #   followed by `nvm use` to set up the correct version.
 
 # Node.js version required for this project.
-23.0.0
+20.0.0

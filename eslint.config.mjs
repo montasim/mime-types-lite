@@ -81,7 +81,10 @@ export default [
             ...pluginTs.configs.recommended.rules,
 
             // Allow specific console methods for debugging purposes
-            'no-console': ['warn', { allow: ['error', 'warn', 'table'] }],
+            'no-console': [
+                'warn',
+                { allow: ['error', 'warn', 'info', 'table'] },
+            ],
 
             // Enforce single quotes for string literals
             quotes: [
@@ -125,6 +128,8 @@ export default [
             '.yarn/**', // Ignore Yarn cache, configuration, and installation-related files
             'node_modules/**', // Ignore third-party dependency files (handled by package manager)
             'build/**', // Ignore build output directory (e.g., production-ready files)
+            'dist/**', // Ignore build output directory (e.g., production-ready files)
+            'out/**', // Ignore build output directory (e.g., production-ready files)
             'logs/**', // Ignore application log files (e.g., error or debug logs)
             'yarn.lock', // Ignore the Yarn lock file (used for dependency resolution)
         ],

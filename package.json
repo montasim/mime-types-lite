@@ -52,7 +52,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "eslint . --fix && prettier . --write && tsc",
+    "build": "eslint . --fix && prettier . --write && tsc && node scripts/compress.js",
     "test": "jest",
     "eslint:check": "eslint .",
     "eslint:fix": "eslint . --fix",
@@ -73,6 +73,7 @@
     "@types/jest": "^29.5.14",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
+    "esbuild": "^0.24.2",
     "eslint": "^9.19.0",
     "eslint-plugin-jest": "^28.10.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -83,6 +84,7 @@
     "lint-staged": "^15.2.9",
     "prettier": "^3.3.3",
     "standard-version": "^9.5.0",
+    "terser": "^5.37.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2"
   }

@@ -60,6 +60,20 @@ Gulpfile.js
 Gruntfile.js
 
 ####################################################
+# Build Outputs
+####################################################
+# Purpose:
+# Directories for build artifacts and compiled code such as `build/`
+# or `.next/` are generated during development or production builds.
+# These files should not be versioned as they can be recreated from
+# the source code.
+
+# General output folder for build artifacts.
+/build
+/dist
+/out
+
+####################################################
 # Configuration Files
 # Purpose: Clean up various CI/CD and project configuration files that are not needed in production.
 # Use: Includes a variety of configuration files used by different tools and services.

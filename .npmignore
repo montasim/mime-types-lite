@@ -109,3 +109,10 @@ commitlint.config.mjs
 
 # GitHub Actions workflow files
 .github/
+
+# General output folder for build artifacts.
+dist/
+out/
+
+# General scripts folder for build scripts.
+scripts/

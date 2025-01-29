@@ -25,6 +25,7 @@ exports[`mimeTypesLite should match snapshot for the entire constants object 1`]
   "ICO": "image/x-icon",
   "ICS": "text/calendar",
   "JP2": "image/jp2",
+  "JPEG": "image/jpeg",
   "JPG": "image/jpeg",
   "JS": "application/javascript",
   "JSON": "application/json",

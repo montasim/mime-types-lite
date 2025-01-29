@@ -155,6 +155,12 @@ const mimeTypesLite = Object.freeze({
     JPG: 'image/jpeg' as const,
 
     /**
+     * MIME Type for JPEG images.
+     * Example: User profile pictures are uploaded and served as `.jpeg` images.
+     */
+    JPEG: 'image/jpeg' as const,
+
+    /**
      * MIME Type for PNG images.
      * Example: A server serves `.png` files for website logos.
      */

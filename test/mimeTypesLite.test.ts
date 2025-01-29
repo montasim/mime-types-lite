@@ -60,6 +60,7 @@ describe('mimeTypesLite', () => {
      */
     it('should return correct MIME types for images', () => {
         expect(mimeTypesLite.JPG).toBe('image/jpeg');
+        expect(mimeTypesLite.JPEG).toBe('image/jpeg');
         expect(mimeTypesLite.PNG).toBe('image/png');
         expect(mimeTypesLite.ICO).toBe('image/x-icon');
         expect(mimeTypesLite.GIF).toBe('image/gif');

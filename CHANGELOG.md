@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.4.0 (2025-01-29)
+
+
+### Features
+
+* merge with origin/main ([b7e8d1d](https://github.com/montasim/mime-types-lite/commit/b7e8d1d592a30e833c0469b1aefe541c8be1c16c))
+
 ### 1.3.1 (2025-01-29)
 
 ## 1.3.0 (2025-01-28)

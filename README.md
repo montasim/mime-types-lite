@@ -107,6 +107,7 @@ app.listen(3000, () => console.log('Server running on port 3000'));
 - `HEIC`: `image/heic`
 - `WEBP`: `image/webp`
 - `JPG`: `image/jpeg`
+- `JPEG`: `image/jpeg`
 - `PNG`: `image/png`
 - `ICO`: `image/x-icon`
 - `GIF`: `image/gif`

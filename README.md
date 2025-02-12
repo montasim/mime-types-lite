@@ -44,24 +44,29 @@ npm install mime-types-lite
 
 ## Usage
 
-### 1. Importing the Constants
+### CommonJS
+
+```javascript
+const mimeTypesLite = require('mime-types-lite');
+
+console.log(mimeTypesLite.JSON); // Outputs: application/json
+```
+
+### Module (ESM)
 
 ```javascript
 import mimeTypesLite from 'mime-types-lite';
 
 console.log(mimeTypesLite.JSON); // Outputs: application/json
-```
 
-### 2. TypeScript Support
-
-```typescript
+// TypeScript example:
 import mimeTypesLite, { MimeType } from 'mime-types-lite';
 
 const fileType: MimeType = 'JSON';
 console.log(mimeTypesLite[fileType]); // Outputs: application/json
 ```
 
-### 3. Example Usage in an Express.js Application
+### Example Usage in an Express.js Application (ESM)
 
 ```javascript
 import mimeTypesLite from 'mime-types-lite';

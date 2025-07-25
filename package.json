@@ -1,7 +1,7 @@
 {
-  "name": "npm-boilerplate",
+  "name": "mime-types-lite",
   "version": "0.0.2",
-  "description": "A simple npm boilerplate.",
+  "description": "A collection of common MIME types for use in applications.",
   "engines": {
     "node": ">=20.x",
     "pnpm": ">=10.x"
@@ -56,12 +56,12 @@
   "license": "CC BY-NC-ND 4.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/montasim/client-parser.git"
+    "url": "git+https://github.com/montasim/mime-types-lite.git"
   },
   "bugs": {
-    "url": "https://github.com/montasim/client-parser/issues"
+    "url": "https://github.com/montasim/mime-types-lite/issues"
   },
-  "homepage": "https://github.com/montasim/client-parser",
+  "homepage": "https://github.com/montasim/mime-types-lite",
   "publishConfig": {
     "access": "public"
   },

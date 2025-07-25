@@ -425,7 +425,4 @@ const mimeTypesLite = Object.freeze({
  */
 export type MimeType = keyof typeof mimeTypesLite;
 
-/**
- * Exports the `getDeviceType` function for use in ESM environments.
- */
 export default mimeTypesLite;

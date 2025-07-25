@@ -78,7 +78,7 @@ import mimeTypesLite from 'mime-types-lite';
 console.log(mimeTypesLite.JSON); // Outputs: application/json
 
 // TypeScript example:
-import mimeTypesLite, { MimeType } from 'mime-types-lite';
+import mimeTypesLite from 'mime-types-lite';
 
 const fileType = 'JSON';
 console.log(mimeTypesLite[fileType]); // Outputs: application/json
@@ -87,13 +87,11 @@ console.log(mimeTypesLite[fileType]); // Outputs: application/json
 ### TypeScript ESM Example
 
 ```typescript
-import mimeTypesLite from 'mime-types-lite';
+import mimeTypesLite, { MimeType } from 'mime-types-lite';
 
 console.log(mimeTypesLite.JSON); // Outputs: application/json
 
 // TypeScript example:
-import mimeTypesLite, { MimeType } from 'mime-types-lite';
-
 const fileType: MimeType = 'JSON';
 console.log(mimeTypesLite[fileType]); // Outputs: application/json
 ```

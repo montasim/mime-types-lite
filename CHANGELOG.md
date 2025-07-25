@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.7.2 (2025-07-25)
+
+
+### Bug Fixes
+
+* test issue ([4503f47](https://github.com/montasim/mime-types-lite/commit/4503f475b794f832ce2377c1909aa031864ecd16))
+
 ### 1.7.1 (2025-07-25)
 
 ## 1.7.0 (2025-07-25)

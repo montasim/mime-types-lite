@@ -1,19 +1,4 @@
 /**
- * @fileoverview Defines the various MIME types used in the application.
- * This module exports an object that contains the different MIME types
- * the application can handle. These MIME types are used to identify the format of data being processed or served.
- *
- * @module constants/mimeTypesLite
- * @version 1.0.0
- * @license CC BY-NC-ND 4.0
- *
- * @contact Mohammad Montasim -Al- Mamun Shuvo
- * @created 2025-01-28
- * @contactEmail montasimmamun@gmail.com
- * @contactGithub https://github.com/montasim
- */
-
-/**
  * An object representing different MIME types.
  * @enum {string}
  */
@@ -440,4 +425,7 @@ const mimeTypesLite = Object.freeze({
  */
 export type MimeType = keyof typeof mimeTypesLite;
 
+/**
+ * Exports the `getDeviceType` function for use in ESM environments.
+ */
 export default mimeTypesLite;

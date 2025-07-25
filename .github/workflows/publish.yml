@@ -14,50 +14,53 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            # Checkout the repository
+            # Step 1: Check out the repository code
             - name: Checkout code
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
 
-            # Set up Git identity
+            # Step 2: Set up Git identity for commits/tags by GitHub Actions
             - name: Set up Git identity
               run: |
                   git config --global user.name "GitHub Actions"
                   git config --global user.email "actions@github.com"
 
-            # Set up Node.js
+            # Step 3: Set up a Node.js environment
             - name: Set up Node.js
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
-                  node-version: '20' # Use a stable LTS version of Node.js
+                  node-version: '20'
                   cache: 'npm'
 
-            # Configure npm authentication
-            - name: Configure npm
-              run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-
-            # Install dependencies
+            # Step 4: Install project dependencies
             - name: Install dependencies
               run: npm install
 
-            # Build the project
+            # Step 5: Fix Prettier formatting issues
+            - name: Fix Linting and Indentation issues
+              run: npm run lint:fix
+
+            # Step 6: Build the project
             - name: Build the project
               run: npm run build
 
-            # Run tests
-            - name: Run tests
-              run: npm test
+            # Step 7: Test the project
+            - name: Test the project
+              run: npm run test
 
-            # Fix Prettier issues
-            - name: Fix Prettier issues
-              run: npm run prettier:fix
+            # Step 8: Configure npm authentication for publishing
+            # This creates an .npmrc file with the NPM_TOKEN secret for authentication with npm registry
+            - name: Configure npm
+              run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-            # Generate a new version and push tags
+            # Step 9: Generate a new version and push tags
+            # HUSKY_SKIP_HOOKS=1 is used to bypass Git hooks during the release process
             - name: Generate a new version and push tags
               run: HUSKY_SKIP_HOOKS=1 npm run release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            # Publish to npm
+            # Step 10: Publish the package to npm registry
+            # This step runs only if all previous steps were successful
             - name: Publish to NPM
               if: success()
               run: npm publish --access public

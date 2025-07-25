@@ -1,13 +1,4 @@
 ####################################################
-# Pre-commit Script
-####################################################
-# Purpose:
-# This pre-commit script is used to run various code quality checks
-# before a commit is allowed into the repository. This ensures that all
-# committed code adheres to the defined code style and quality standards,
-# preventing common errors and improving the overall health of the codebase.
-
-####################################################
 # RUNNING PRETTIER CHECKS
 ####################################################
 # Purpose:

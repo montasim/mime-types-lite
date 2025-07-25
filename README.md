@@ -40,11 +40,29 @@ To install the package, run the following command:
 npm install mime-types-lite
 ```
 
+or
+
+```bash
+yarn add mime-types-lite
+```
+
+or
+
+```bash
+pnpm add mime-types-lite
+```
+
+or
+
+```bash
+bun add mime-types-lite
+```
+
 ---
 
 ## Usage
 
-### CommonJS
+### JavaScript CommonJS Example
 
 ```javascript
 const mimeTypesLite = require('mime-types-lite');
@@ -52,7 +70,7 @@ const mimeTypesLite = require('mime-types-lite');
 console.log(mimeTypesLite.JSON); // Outputs: application/json
 ```
 
-### Module (ESM)
+### JavaScript ESM Example
 
 ```javascript
 import mimeTypesLite from 'mime-types-lite';
@@ -62,23 +80,22 @@ console.log(mimeTypesLite.JSON); // Outputs: application/json
 // TypeScript example:
 import mimeTypesLite, { MimeType } from 'mime-types-lite';
 
-const fileType: MimeType = 'JSON';
+const fileType = 'JSON';
 console.log(mimeTypesLite[fileType]); // Outputs: application/json
 ```
 
-### Example Usage in an Express.js Application (ESM)
+### TypeScript ESM Example
 
-```javascript
+```typescript
 import mimeTypesLite from 'mime-types-lite';
-const express = require('express');
-const app = express();
 
-app.get('/file', (req, res) => {
-    res.setHeader('Content-Type', mimeTypesLite.PDF);
-    res.send('This is a PDF response');
-});
+console.log(mimeTypesLite.JSON); // Outputs: application/json
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+// TypeScript example:
+import mimeTypesLite, { MimeType } from 'mime-types-lite';
+
+const fileType: MimeType = 'JSON';
+console.log(mimeTypesLite[fileType]); // Outputs: application/json
 ```
 
 ---
@@ -222,6 +239,24 @@ You can remove the package by running:
 npm uninstall mime-types-lite
 ```
 
+or
+
+```bash
+yarn remove mime-types-lite
+```
+
+or
+
+```bash
+pnpm remove mime-types-lite
+```
+
+or
+
+```bash
+bun remove mime-types-lite
+```
+
 ---
 
 ## Author
@@ -233,7 +268,7 @@ npm uninstall mime-types-lite
       <a href="https://github.com/montasim">
         <br>
           Ｍ♢ＮＴΛＳＩＭ
-        </br>
+        <br>
       </a>
     </td>
   </tr>

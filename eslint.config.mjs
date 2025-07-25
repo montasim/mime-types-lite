@@ -1,28 +1,4 @@
-/**
- * @fileoverview ESLint configuration for a JavaScript/TypeScript project.
- * This configuration enforces best practices, coding conventions, and ensures code consistency
- * for general JavaScript and React-based projects.
- *
- * The configuration includes:
- * - File matching patterns for JavaScript and TypeScript files
- * - Language options for specifying globals and parsers
- * - Plugins such as TypeScript ESLint for enhanced linting rules
- * - Recommended rulesets for both JavaScript and TypeScript
- * - Custom rule adjustments to meet project-specific requirements
- * - Ignored files and directories to optimize linting performance
- *
- * @module eslint.config.mjs
- * @version 1.0.0
- * @license CC BY-NC-ND 4.0
- *
- * @contact Mohammad Montasim -Al- Mamun Shuvo
- * @created 2025-01-28
- * @contactEmail montasimmamun@gmail.com
- * @contactGithub https://github.com/montasim
- */
-
 import globals from 'globals';
-import pluginJs from '@eslint/js';
 import parser from '@typescript-eslint/parser';
 import pluginTs from '@typescript-eslint/eslint-plugin';
 
@@ -74,9 +50,6 @@ export default [
          * Combines recommended rules from JavaScript and TypeScript plugins with project-specific adjustments.
          */
         rules: {
-            // Recommended JavaScript rules
-            ...pluginJs.configs.recommended.rules,
-
             // Recommended TypeScript rules
             ...pluginTs.configs.recommended.rules,
 

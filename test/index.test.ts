@@ -1,18 +1,3 @@
-/**
- * @fileoverview Unit tests for the mimeTypesLite module.
- * These tests ensure that all MIME types are correctly defined, immutable, and return expected values.
- * It also validates the TypeScript types and checks that invalid keys are not allowed.
- *
- * @module tests/mimeTypesLite.test
- * @version 1.0.0
- * @license CC BY-NC-ND 4.0
- *
- * @contact Mohammad Montasim -Al- Mamun Shuvo
- * @created 2025-01-28
- * @contactEmail montasimmamun@gmail.com
- * @contactGithub https://github.com/montasim
- */
-
 import mimeTypesLite, { MimeType } from '../src/index';
 
 describe('mimeTypesLite', () => {

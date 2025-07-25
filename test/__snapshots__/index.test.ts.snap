@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`mimeTypesLite (CJS) should match snapshot for the entire constants object 1`] = `
+exports[`mimeTypesLite should match snapshot for the entire constants object 1`] = `
 {
   "AAC": "audio/aac",
   "AMR": "audio/amr",

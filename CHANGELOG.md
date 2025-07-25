@@ -2,67 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.6.1](https://github.com/montasim/mime-types-lite/compare/v1.6.0...v1.6.1) (2025-05-11)
+### 0.0.2 (2025-07-24)
 
-
-### Bug Fixes
-
-* build issue ([5a12a9f](https://github.com/montasim/mime-types-lite/commit/5a12a9f9258ea461f3cce18b25cd4abe8686030d))
-
-
-### Code Refactoring
-
-* remove package-lock.json ([cb90805](https://github.com/montasim/mime-types-lite/commit/cb9080533e622ae47eaee178a59e4d6fcacdf333))
-
-## 1.6.0 (2025-02-12)
+### 0.0.17 (2025-07-24)
 
 
 ### Features
 
-* merge with origin/main ([6b53eff](https://github.com/montasim/mime-types-lite/commit/6b53efff3ba89b35acb37a6313c5d816133da00a))
+* initiate boilerplate ([fdc7c8f](https://github.com/montasim/client-parser/commit/fdc7c8feae49cbf3094ac1213b7c21b972a9ab4a))
 
-### 1.5.1 (2025-02-04)
+# Changelog
 
-## 1.5.0 (2025-01-29)
-
-
-### Features
-
-* merge with origin/main ([d50ab27](https://github.com/montasim/mime-types-lite/commit/d50ab276d71f3bc30cd087c24fe79fb78f2d19fa))
-
-## 1.4.0 (2025-01-29)
-
-
-### Features
-
-* merge with origin/main ([b7e8d1d](https://github.com/montasim/mime-types-lite/commit/b7e8d1d592a30e833c0469b1aefe541c8be1c16c))
-
-### 1.3.1 (2025-01-29)
-
-## 1.3.0 (2025-01-28)
-
-
-### Features
-
-* merge with origin/main ([6acf08b](https://github.com/montasim/mime-types-lite/commit/6acf08bfe6a93b72a88d069c0d9a1dd10d659fd3))
-
-## 1.2.0 (2025-01-28)
-
-
-### Features
-
-* add common mime types ([cb6ac0f](https://github.com/montasim/mime-types-lite/commit/cb6ac0feeb439a373ded2f079bd7453345c57340))
-
-## 1.1.0 (2025-01-28)
-
-
-### Features
-
-* update keywords ([bc1007a](https://github.com/montasim/mime-types-lite/commit/bc1007ad1f588b4a7744d3b3fa0f531a06450f9f))
-
-### 1.0.2 (2025-01-28)
-
-
-### Bug Fixes
-
-* generate a new version and push tags ([8f51d7f](https://github.com/montasim/mime-types-lite/commit/8f51d7f154576f37f0b5382958769901dadd1be5))
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

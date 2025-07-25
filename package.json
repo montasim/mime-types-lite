@@ -1,6 +1,6 @@
 {
   "name": "mime-types-lite",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A collection of common MIME types for use in applications.",
   "engines": {
     "node": ">=20.x",

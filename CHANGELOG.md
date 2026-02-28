@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.7.3 (2026-02-28)
+
+
+### Documentation
+
+* add demo link to README ([5917f5f](https://github.com/montasim/mime-types-lite/commit/5917f5f8da35cab14a4429ab2a78fc8c2feb464c))
+
 ### 1.7.2 (2025-07-25)
 
 

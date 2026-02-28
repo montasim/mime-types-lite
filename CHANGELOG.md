@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.7.4 (2026-02-28)
+
+
+### Bug Fixes
+
+* add peer property to dependencies in package-lock.json ([3e9da5e](https://github.com/montasim/mime-types-lite/commit/3e9da5ed6eac6b4a81ca3a30e6fbb6acda149530))
+
 ### 1.7.3 (2026-02-28)
 
 

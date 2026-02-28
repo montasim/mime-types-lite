@@ -10,6 +10,8 @@
 
 The [mime-types-lite](https://www.npmjs.com/package/mime-types-lite) is a lightweight and comprehensive utility providing standardized MIME types for applications. It simplifies the handling of file format identification by offering predefined constants, ensuring clarity and consistency in file processing and serving.
 
+🌐 **Demo:** [https://mime-types-lite-demo.netlify.app/](https://mime-types-lite-demo.netlify.app/)
+
 ## Table of Contents
 
 - [Key Features](#key-features)

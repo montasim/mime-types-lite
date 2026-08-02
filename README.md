@@ -1,275 +1,141 @@
 # mime-types-lite
 
-<!-- repository summary badges start -->
-<div>
-    <img alt="NPM Version" src="https://badgen.net/npm/v/mime-types-lite?label=version&labelColor=EB008B&color=00B8B5">
-    <img alt="NPM Downloads" src="https://badgen.net/npm/dm/mime-types-lite?label=downloads&labelColor=EB008B&color=00B8B5">
-    <img alt="NPM Package" src="https://badgen.net/npm/license/mime-types-lite?label=license&labelColor=EB008B&color=00B8B5">
-</div>
-<!-- repository summary badges end -->
+[![npm version](https://img.shields.io/npm/v/mime-types-lite.svg)](https://www.npmjs.com/package/mime-types-lite)
+[![CI](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml/badge.svg)](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/mime-types-lite.svg)](./LICENSE)
 
-The [mime-types-lite](https://www.npmjs.com/package/mime-types-lite) is a lightweight and comprehensive utility providing standardized MIME types for applications. It simplifies the handling of file format identification by offering predefined constants, ensuring clarity and consistency in file processing and serving.
+Tiny, zero-dependency, type-safe MIME constants and helpers for HTTP APIs, uploads, and file extensions. It gives application code a curated vocabulary without shipping a complete MIME database.
 
-🌐 **Demo:** [https://mime-types-lite-demo.netlify.app/](https://mime-types-lite-demo.netlify.app/)
+```ts
+import { MIME, fromExtension, matchesMimeType } from 'mime-types-lite';
 
-## Table of Contents
+MIME.JSON; // 'application/json'
+fromExtension('reports/annual.pdf'); // 'application/pdf'
+matchesMimeType('image/png', 'image/*'); // true
+```
 
-- [Key Features](#key-features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Supported MIME Types](#supported-mime-types)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-- [FAQs](#faqs)
+## Why this package?
 
----
+- Avoid repeated, typo-prone MIME strings.
+- Get literal TypeScript unions for both keys and values.
+- Normalize real `Content-Type` headers, including parameters.
+- Match exact media types or category wildcards such as `image/*`.
+- Look up common file extensions without a runtime dependency.
+- Use the same API from ESM, CommonJS, Node.js, or a browser bundle.
 
-## Key Features
-
-1. **Predefined MIME Types:** Provides a comprehensive set of MIME types for easy reference.
-2. **TypeScript Support:** Includes strong type definitions for enhanced code safety and developer experience.
-3. **Immutable Constants:** Ensures MIME types cannot be modified, preventing unintended changes.
-4. **Lightweight & Efficient:** Minimal footprint with high performance.
-5. **Easy Integration:** Seamlessly integrates with any Node.js or TypeScript-based project.
-
----
+Use [`mime`](https://www.npmjs.com/package/mime) or [`mime-types`](https://www.npmjs.com/package/mime-types) if you need an exhaustive database. This package intentionally optimizes for a small, reviewed set of types commonly used by applications.
 
 ## Installation
-
-To install the package, run the following command:
 
 ```bash
 npm install mime-types-lite
 ```
 
-or
+## API
 
-```bash
-yarn add mime-types-lite
+### Constants
+
+```ts
+import mimeTypesLite, {
+    JSON,
+    MIME,
+    type MimeType,
+    type MimeTypeKey,
+} from 'mime-types-lite';
+
+JSON; // 'application/json'
+MIME.PDF; // 'application/pdf'
+mimeTypesLite.PNG; // 'image/png' (backward-compatible default export)
+
+const key: MimeTypeKey = 'PDF';
+const value: MimeType = 'application/pdf';
 ```
 
-or
+Individual named constants are friendly to tree-shaking. `MIME` and the default export provide an immutable object for convenient dynamic lookup.
 
-```bash
-pnpm add mime-types-lite
+### Extension lookup
+
+```ts
+import { extensionsFor, fromExtension } from 'mime-types-lite';
+
+fromExtension('.json'); // 'application/json'
+fromExtension('C:\\files\\photo.JPEG'); // 'image/jpeg'
+fromExtension('https://example.com/app.js?v=2'); // 'text/javascript'
+fromExtension('unknown.custom'); // undefined
+
+extensionsFor('image/jpeg'); // ['jpg', 'jpeg', 'jpe']
+extensionsFor('text/html; charset=utf-8'); // ['html', 'htm']
 ```
 
-or
+Lookup is based only on the filename or extension. It does not inspect file bytes.
 
-```bash
-bun add mime-types-lite
+### Validation and normalization
+
+```ts
+import {
+    isKnownMimeType,
+    isMimeType,
+    mimeCategory,
+    normalizeMimeType,
+} from 'mime-types-lite';
+
+isMimeType('application/problem+json'); // true
+isKnownMimeType('application/json; charset=utf-8'); // true
+normalizeMimeType(' Application/JSON; charset=utf-8 '); // 'application/json'
+mimeCategory('image/svg+xml'); // 'image'
 ```
 
----
+`isMimeType` validates syntax. `isKnownMimeType` checks the smaller curated collection exported by this package.
 
-## Usage
+### Pattern matching
 
-### JavaScript CommonJS Example
+```ts
+import { matchesMimeType } from 'mime-types-lite';
 
-```javascript
-const mimeTypesLite = require('mime-types-lite');
-
-console.log(mimeTypesLite.JSON); // Outputs: application/json
+matchesMimeType('image/avif', 'image/*'); // true
+matchesMimeType('application/json; charset=utf-8', 'application/json'); // true
+matchesMimeType('text/plain', 'image/*'); // false
 ```
 
-### JavaScript ESM Example
+Supported patterns are exact media types, `type/*`, and `*/*`. This helper does not parse weighted HTTP `Accept` headers.
 
-```javascript
-import mimeTypesLite from 'mime-types-lite';
+## Standards and compatibility aliases
 
-console.log(mimeTypesLite.JSON); // Outputs: application/json
+The preferred constants follow the current IANA registry and relevant specifications. Notable corrections in 1.8 include:
 
-// TypeScript example:
-import mimeTypesLite from 'mime-types-lite';
+- JavaScript: `text/javascript` rather than obsolete `application/javascript`.
+- YAML: `application/yaml` rather than legacy `application/x-yaml`.
+- Icons: `image/vnd.microsoft.icon` rather than legacy `image/x-icon`.
+- GraphQL-over-HTTP responses: `application/graphql-response+json`.
+- Semicolon-delimited CSV remains `text/csv`; a delimiter does not define a subtype.
 
-const fileType = 'JSON';
-console.log(mimeTypesLite[fileType]); // Outputs: application/json
-```
+Historical values needed for interoperability live in `LEGACY_MIME`. The old `MIME.GRAPHQL` and `MIME.CSV_SEMICOLON` keys remain for migration compatibility; new code should use `MIME.GRAPHQL_RESPONSE_JSON` and `MIME.CSV`.
 
-### TypeScript ESM Example
+Primary references:
 
-```typescript
-import mimeTypesLite, { MimeType } from 'mime-types-lite';
+- [IANA Media Types registry](https://www.iana.org/assignments/media-types/media-types.xhtml)
+- [RFC 9239: JavaScript media types](https://www.rfc-editor.org/rfc/rfc9239)
+- [RFC 9512: YAML media type](https://www.rfc-editor.org/rfc/rfc9512)
+- [GraphQL over HTTP](https://graphql.github.io/graphql-over-http/draft/)
 
-console.log(mimeTypesLite.JSON); // Outputs: application/json
+## Security
 
-// TypeScript example:
-const fileType: MimeType = 'JSON';
-console.log(mimeTypesLite[fileType]); // Outputs: application/json
-```
+A filename extension, browser `File.type`, or HTTP `Content-Type` header can be incorrect or attacker-controlled. Do not use this package as proof of a file's contents. For untrusted uploads, also inspect file signatures, enforce size limits, store files safely, and process them with hardened tooling.
 
----
+See [SECURITY.md](./SECURITY.md) for vulnerability reporting.
 
-## Supported MIME Types
+## Support policy
 
-### **Document MIME Types**
+- Node.js 20 or newer
+- Modern browser bundlers
+- ESM and CommonJS
+- TypeScript declarations included
+- No runtime dependencies
 
-- `EPUB`: `application/epub+zip`
-- `TEX`: `application/x-tex`
-- `PPT`: `application/vnd.ms-powerpoint`
-- `PPTX`: `application/vnd.openxmlformats-officedocument.presentationml.presentation`
-- `ODT`: `application/vnd.oasis.opendocument.text`
-- `ODS`: `application/vnd.oasis.opendocument.spreadsheet`
-- `RTF`: `application/rtf`
-- `DOC`: `application/msword`
-- `DOCX`: `application/vnd.openxmlformats-officedocument.wordprocessingml.document`
-- `XLS`: `application/vnd.ms-excel`
-- `XLSX`: `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
-- `PDF`: `application/pdf`
-- `MD`: `text/markdown`
-- `TXT`: `text/plain`
-- `CSV`: `text/csv`
+## Contributing
 
-### **Image MIME Types**
-
-- `XCF`: `image/x-xcf`
-- `PSD`: `image/vnd.adobe.photoshop`
-- `JP2`: `image/jp2`
-- `AVIF`: `image/avif`
-- `HEIC`: `image/heic`
-- `WEBP`: `image/webp`
-- `JPG`: `image/jpeg`
-- `JPEG`: `image/jpeg`
-- `PNG`: `image/png`
-- `ICO`: `image/x-icon`
-- `GIF`: `image/gif`
-- `BMP`: `image/bmp`
-- `TIFF`: `image/tiff`
-- `SVG`: `image/svg+xml`
-
-### **Video MIME Types**
-
-- `MKV`: `video/x-matroska`
-- `FLV`: `video/x-flv`
-- `WMV`: `video/x-ms-wmv`
-- `MOV`: `video/quicktime`
-- `WEBM`: `video/webm`
-- `AVI`: `video/avi`
-- `MPEG`: `video/mpeg`
-- `MP4`: `video/mp4`
-
-### **Audio MIME Types**
-
-- `AMR`: `audio/amr`
-- `MIDI`: `audio/midi`
-- `FLAC`: `audio/flac`
-- `OGG`: `audio/ogg`
-- `AAC`: `audio/aac`
-- `MP3`: `audio/mpeg`
-- `WAV`: `audio/wav`
-
-### **Archive MIME Types**
-
-- `TAR`: `application/x-tar`
-- `GZ`: `application/gzip`
-- `SEVEN_ZIP`: `application/x-7z-compressed`
-- `ZIP`: `application/zip`
-- `RAR`: `application/vnd.rar`
-- `BZ2`: `application/x-bzip2`
-
-### **Web-related MIME Types**
-
-- `ICS`: `text/calendar`
-- `ATOM`: `application/atom+xml`
-- `RSS`: `application/rss+xml`
-- `WASM`: `application/wasm`
-- `YAML`: `application/x-yaml`
-- `GRAPHQL`: `application/graphql`
-- `URL_ENCODED`: `application/x-www-form-urlencoded`
-- `JSON`: `application/json`
-- `XML`: `application/xml`
-- `JS`: `application/javascript`
-- `CSS`: `text/css`
-- `HTML`: `text/html`
-
-### **Font MIME Types**
-
-- `WOFF`: `font/woff`
-- `WOFF2`: `font/woff2`
-- `TTF`: `font/ttf`
-- `OTF`: `font/otf`
-
----
+Data additions should include an authoritative specification or registry reference and tests for every relevant extension. See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## License
 
-[![by-nc-nd/4.0](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-
-This project is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)**.
-
-### You are free to:
-
-- **Share** — Copy and redistribute the material in any medium or format.
-
-### Under the following terms:
-
-- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
-- **NonCommercial** — You may not use the material for commercial purposes.
-- **NoDerivatives** — If you remix, transform, or build upon the material, you may not distribute the modified material.
-
-For more details, please visit the [Creative Commons License Page](https://creativecommons.org/licenses/by-nc-nd/4.0/).
-
----
-
-## Acknowledgments
-
-Special thanks to the following resources:
-
-1. **MDN Web Docs** - Comprehensive MIME type references.
-2. **Node.js Express Documentation** - Guidance on handling MIME types in HTTP responses.
-3. **TypeScript Docs** - Best practices for defining and using type-safe constants.
-
----
-
-## FAQs
-
-### 1. **How do I determine the correct MIME type for my file?**
-
-MIME types are categorized based on their format. Documents, images, videos, audio, and archives each have their respective MIME types. Refer to the [Supported MIME Types](#supported-mime-types) section for details.
-
-### 2. **Can I extend this library with custom MIME types?**
-
-No, the constants are immutable and follow the official MIME type standards. If needed, you can create a wrapper module to include your custom MIME types.
-
-### 3. **How do I uninstall the package?**
-
-You can remove the package by running:
-
-```bash
-npm uninstall mime-types-lite
-```
-
-or
-
-```bash
-yarn remove mime-types-lite
-```
-
-or
-
-```bash
-pnpm remove mime-types-lite
-```
-
-or
-
-```bash
-bun remove mime-types-lite
-```
-
----
-
-## Author
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="https://avatars.githubusercontent.com/u/95298623?v=4" width="100px" alt="Moon">
-      <a href="https://github.com/montasim">
-        <br>
-          Ｍ♢ＮＴΛＳＩＭ
-        <br>
-      </a>
-    </td>
-  </tr>
-</table>
+[MIT](./LICENSE) © Mohammad Montasim Al Mamun Shuvo

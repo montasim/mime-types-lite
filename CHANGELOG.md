@@ -2,6 +2,12 @@
 
 All notable changes are documented here. The project follows [Semantic Versioning](https://semver.org/).
 
+## 1.9.0
+
+### Changed
+
+- Updated the package homepage to the hosted demo at https://mime-types-lite-demo.netlify.app.
+
 ## 1.8.0
 
 ### Added

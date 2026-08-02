@@ -87,7 +87,7 @@ try {
     const packageJson = JSON.parse(
         readFileSync(join(projectDirectory, 'package.json'), 'utf8')
     );
-    assert.equal(packageJson.version, '1.8.0');
+    assert.equal(packageJson.version, '1.9.0');
 
     rmSync(tarball);
     console.info('Packed ESM and CommonJS consumer smoke tests passed.');

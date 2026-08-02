@@ -1,6 +1,6 @@
 {
   "name": "mime-types-lite",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Tiny, zero-dependency, type-safe MIME constants and helpers for HTTP APIs, uploads, and file extensions.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -70,7 +70,7 @@
   "bugs": {
     "url": "https://github.com/montasim/mime-types-lite/issues"
   },
-  "homepage": "https://github.com/montasim/mime-types-lite#readme",
+  "homepage": "https://mime-types-lite-demo.netlify.app",
   "publishConfig": {
     "access": "public",
     "provenance": true

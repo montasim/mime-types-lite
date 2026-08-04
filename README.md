@@ -137,6 +137,10 @@ See [SECURITY.md](./SECURITY.md) for vulnerability reporting.
 
 The published package includes both ESM and CommonJS entry points plus TypeScript declarations. Importing it does not access the filesystem, network, browser globals, or environment variables.
 
+## Configuration
+
+The package requires no environment variables, accounts, network services, storage, or initialization. Pass filenames, extensions, media types, and match patterns directly to the helpers. The curated registry is compiled into the package; consumers cannot extend it globally at runtime, which keeps behavior deterministic across an application.
+
 ## Versioning and releases
 
 Review [CHANGELOG.md](./CHANGELOG.md) before upgrading. Corrected standards values may require consumers to migrate to a replacement constant; compatibility aliases are documented and retained where the public API permits. Releases are validated through the repository's CI and release workflows, including package-shape checks and a dry-run archive inspection.
@@ -179,6 +183,8 @@ npm run check
 Data additions should include an authoritative specification or registry reference and tests for every relevant extension. See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 Use [GitHub Issues](https://github.com/montasim/mime-types-lite/issues) for reproducible bugs or focused API proposals. Report vulnerabilities privately through [SECURITY.md](./SECURITY.md).
+
+The repository includes contribution and security policies but does not currently include a separate `CODE_OF_CONDUCT.md`. Keep participation technical and respectful, and follow the evidence requirements in [CONTRIBUTING.md](./CONTRIBUTING.md) for registry changes.
 
 ## Support
 

@@ -141,6 +141,39 @@ The published package includes both ESM and CommonJS entry points plus TypeScrip
 
 Review [CHANGELOG.md](./CHANGELOG.md) before upgrading. Corrected standards values may require consumers to migrate to a replacement constant; compatibility aliases are documented and retained where the public API permits. Releases are validated through the repository's CI and release workflows, including package-shape checks and a dry-run archive inspection.
 
+The package is published on npm. CI validates Node.js 20, 22, and 24, while a release re-runs the complete checks and publishes the package with npm provenance. The package follows the version in `package.json`; standards corrections and compatibility notes are recorded in the changelog.
+
+## Development
+
+```bash
+git clone https://github.com/montasim/mime-types-lite.git
+cd mime-types-lite
+npm ci
+npm run check
+```
+
+| Command                    | Purpose                                                    |
+| -------------------------- | ---------------------------------------------------------- |
+| `npm run build`            | Build ESM, CommonJS, and TypeScript declaration output     |
+| `npm run typecheck`        | Type-check source without emitting files                   |
+| `npm test`                 | Build and run runtime plus public-type tests               |
+| `npm run test:types`       | Validate the public TypeScript surface                     |
+| `npm run lint`             | Check source and configuration with ESLint                 |
+| `npm run format:check`     | Verify Prettier formatting                                 |
+| `npm run validate:package` | Build and smoke-test the published package shape           |
+| `npm run check`            | Run formatting, lint, types, tests, and package validation |
+| `npm run release:check`    | Run all checks and inspect an npm pack dry run             |
+
+## Documentation map
+
+- [Live documentation and examples](https://mime-types-lite-demo.netlify.app/docs)
+- [Constants](#constants), [extension lookup](#extension-lookup), [validation](#validation-and-normalization), and [matching](#pattern-matching)
+- [Standards and aliases](#standards-and-compatibility-aliases)
+- [Security guidance](#security) and [private reporting policy](SECURITY.md)
+- [Release history](CHANGELOG.md)
+- [Contribution guide](CONTRIBUTING.md)
+- [Issue tracker](https://github.com/montasim/mime-types-lite/issues)
+
 ## Contributing
 
 Data additions should include an authoritative specification or registry reference and tests for every relevant extension. See [CONTRIBUTING.md](./CONTRIBUTING.md).
@@ -152,6 +185,12 @@ Use [GitHub Issues](https://github.com/montasim/mime-types-lite/issues) for repr
 If this project has been useful, you can support its continued maintenance:
 
 [![Support me on SupportKori](https://img.shields.io/badge/Support%20me-SupportKori-FFDD00?style=flat-square)](https://www.supportkori.com/montasim)
+
+Funding is optional and supports registry research, compatibility work, documentation, and publishing infrastructure.
+
+## Author
+
+Created and maintained by [Mohammad Montasim Al Mamun Shuvo](https://github.com/montasim).
 
 ## License
 

@@ -1,13 +1,13 @@
-[![Support me on SupportKori](https://img.shields.io/badge/Support%20me-SupportKori-FFDD00?style=flat-square)](https://www.supportkori.com/montasim)
-
 # mime-types-lite
 
 [![npm version](https://img.shields.io/npm/v/mime-types-lite.svg)](https://www.npmjs.com/package/mime-types-lite)
 [![CI](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml/badge.svg)](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml)
 [![license](https://img.shields.io/npm/l/mime-types-lite.svg)](./LICENSE)
-
+[![Support on SupportKori](https://img.shields.io/badge/support-SupportKori-FFDD00)](https://www.supportkori.com/montasim)
 
 Tiny, zero-dependency, type-safe MIME constants and helpers for HTTP APIs, uploads, and file extensions. It gives application code a curated vocabulary without shipping a complete MIME database.
+
+**[Explore the live documentation](https://mime-types-lite-demo.netlify.app/docs)** · **[Try the interactive examples](https://mime-types-lite-demo.netlify.app)**
 
 ```ts
 import { MIME, fromExtension, matchesMimeType } from 'mime-types-lite';
@@ -135,15 +135,72 @@ See [SECURITY.md](./SECURITY.md) for vulnerability reporting.
 - TypeScript declarations included
 - No runtime dependencies
 
+The published package includes both ESM and CommonJS entry points plus TypeScript declarations. Importing it does not access the filesystem, network, browser globals, or environment variables.
+
+## Configuration
+
+The package requires no environment variables, accounts, network services, storage, or initialization. Pass filenames, extensions, media types, and match patterns directly to the helpers. The curated registry is compiled into the package; consumers cannot extend it globally at runtime, which keeps behavior deterministic across an application.
+
+## Versioning and releases
+
+Review [CHANGELOG.md](./CHANGELOG.md) before upgrading. Corrected standards values may require consumers to migrate to a replacement constant; compatibility aliases are documented and retained where the public API permits. Releases are validated through the repository's CI and release workflows, including package-shape checks and a dry-run archive inspection.
+
+The default `main` branch and its changelog currently describe `1.8.0`, while npm publishes `1.9.0` from the repository's `v2` branch. The `v2` changelog records the `1.9.0` homepage update. Treat the dynamic npm badge as the registry version and the checked-in `main` files as the default-branch development state; reconcile the branches before preparing another release from `main`.
+
+CI validates its configured Node.js matrix, while a release re-runs the complete checks and publishes with npm provenance. Registry users should compare the npm version with the relevant branch and changelog rather than assuming `main/package.json` always matches the latest published artifact.
+
+## Development
+
+Use Node.js `^20.19.0`, `^22.13.0`, or `>=24`. Those are the runtime ranges required by the current ESLint 10 contributor toolchain; `.node-version` selects Node.js 24. This is more specific than the package's Node.js 20 consumer floor.
+
+```bash
+git clone https://github.com/montasim/mime-types-lite.git
+cd mime-types-lite
+npm ci
+npm run check
+```
+
+| Command                    | Purpose                                                    |
+| -------------------------- | ---------------------------------------------------------- |
+| `npm run build`            | Build ESM, CommonJS, and TypeScript declaration output     |
+| `npm run typecheck`        | Type-check source without emitting files                   |
+| `npm test`                 | Build and run runtime plus public-type tests               |
+| `npm run test:types`       | Validate the public TypeScript surface                     |
+| `npm run lint`             | Check source and configuration with ESLint                 |
+| `npm run format:check`     | Verify Prettier formatting                                 |
+| `npm run validate:package` | Build and smoke-test the published package shape           |
+| `npm run check`            | Run formatting, lint, types, tests, and package validation |
+| `npm run release:check`    | Run all checks and inspect an npm pack dry run             |
+
+## Documentation map
+
+- [Live documentation and examples](https://mime-types-lite-demo.netlify.app/docs)
+- [Constants](#constants), [extension lookup](#extension-lookup), [validation](#validation-and-normalization), and [matching](#pattern-matching)
+- [Standards and aliases](#standards-and-compatibility-aliases)
+- [Security guidance](#security) and [private reporting policy](SECURITY.md)
+- [Release history](CHANGELOG.md)
+- [Contribution guide](CONTRIBUTING.md)
+- [Issue tracker](https://github.com/montasim/mime-types-lite/issues)
+
 ## Contributing
 
 Data additions should include an authoritative specification or registry reference and tests for every relevant extension. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+Use [GitHub Issues](https://github.com/montasim/mime-types-lite/issues) for reproducible bugs or focused API proposals. Report vulnerabilities privately through [SECURITY.md](./SECURITY.md).
+
+The repository includes contribution and security policies but does not currently include a separate `CODE_OF_CONDUCT.md`. Keep participation technical and respectful, and follow the evidence requirements in [CONTRIBUTING.md](./CONTRIBUTING.md) for registry changes.
 
 ## Support
 
 If this project has been useful, you can support its continued maintenance:
 
 [![Support me on SupportKori](https://img.shields.io/badge/Support%20me-SupportKori-FFDD00?style=flat-square)](https://www.supportkori.com/montasim)
+
+Funding is optional and supports registry research, compatibility work, documentation, and publishing infrastructure.
+
+## Author
+
+Created and maintained by [Mohammad Montasim Al Mamun Shuvo](https://github.com/montasim).
 
 ## License
 

@@ -145,9 +145,13 @@ The package requires no environment variables, accounts, network services, stora
 
 Review [CHANGELOG.md](./CHANGELOG.md) before upgrading. Corrected standards values may require consumers to migrate to a replacement constant; compatibility aliases are documented and retained where the public API permits. Releases are validated through the repository's CI and release workflows, including package-shape checks and a dry-run archive inspection.
 
-The package is published on npm. CI validates Node.js 20, 22, and 24, while a release re-runs the complete checks and publishes the package with npm provenance. The package follows the version in `package.json`; standards corrections and compatibility notes are recorded in the changelog.
+The default `main` branch and its changelog currently describe `1.8.0`, while npm publishes `1.9.0` from the repository's `v2` branch. The `v2` changelog records the `1.9.0` homepage update. Treat the dynamic npm badge as the registry version and the checked-in `main` files as the default-branch development state; reconcile the branches before preparing another release from `main`.
+
+CI validates its configured Node.js matrix, while a release re-runs the complete checks and publishes with npm provenance. Registry users should compare the npm version with the relevant branch and changelog rather than assuming `main/package.json` always matches the latest published artifact.
 
 ## Development
+
+Use Node.js `^20.19.0`, `^22.13.0`, or `>=24`. Those are the runtime ranges required by the current ESLint 10 contributor toolchain; `.node-version` selects Node.js 24. This is more specific than the package's Node.js 20 consumer floor.
 
 ```bash
 git clone https://github.com/montasim/mime-types-lite.git

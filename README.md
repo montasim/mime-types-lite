@@ -1,13 +1,13 @@
-[![Support me on SupportKori](https://img.shields.io/badge/Support%20me-SupportKori-FFDD00?style=flat-square)](https://www.supportkori.com/montasim)
-
 # mime-types-lite
 
 [![npm version](https://img.shields.io/npm/v/mime-types-lite.svg)](https://www.npmjs.com/package/mime-types-lite)
 [![CI](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml/badge.svg)](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml)
 [![license](https://img.shields.io/npm/l/mime-types-lite.svg)](./LICENSE)
-
+[![Support on SupportKori](https://img.shields.io/badge/support-SupportKori-FFDD00)](https://www.supportkori.com/montasim)
 
 Tiny, zero-dependency, type-safe MIME constants and helpers for HTTP APIs, uploads, and file extensions. It gives application code a curated vocabulary without shipping a complete MIME database.
+
+**[Explore the live documentation](https://mime-types-lite-demo.netlify.app/docs)** · **[Try the interactive examples](https://mime-types-lite-demo.netlify.app)**
 
 ```ts
 import { MIME, fromExtension, matchesMimeType } from 'mime-types-lite';
@@ -135,9 +135,17 @@ See [SECURITY.md](./SECURITY.md) for vulnerability reporting.
 - TypeScript declarations included
 - No runtime dependencies
 
+The published package includes both ESM and CommonJS entry points plus TypeScript declarations. Importing it does not access the filesystem, network, browser globals, or environment variables.
+
+## Versioning and releases
+
+Review [CHANGELOG.md](./CHANGELOG.md) before upgrading. Corrected standards values may require consumers to migrate to a replacement constant; compatibility aliases are documented and retained where the public API permits. Releases are validated through the repository's CI and release workflows, including package-shape checks and a dry-run archive inspection.
+
 ## Contributing
 
 Data additions should include an authoritative specification or registry reference and tests for every relevant extension. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+Use [GitHub Issues](https://github.com/montasim/mime-types-lite/issues) for reproducible bugs or focused API proposals. Report vulnerabilities privately through [SECURITY.md](./SECURITY.md).
 
 ## Support
 

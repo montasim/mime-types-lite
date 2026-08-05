@@ -3,6 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/mime-types-lite.svg)](https://www.npmjs.com/package/mime-types-lite)
 [![CI](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml/badge.svg)](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-3157d5.svg)](LICENSE)
+[![Support on SupportKori](https://img.shields.io/badge/support-SupportKori-FFDD00)](https://www.supportkori.com/montasim)
 
 A pnpm monorepo for the zero-dependency `mime-types-lite` TypeScript library and its interactive TanStack Start documentation site. The web app consumes the local package on every build, so API, examples, and documentation can be developed and verified together.
 
@@ -118,6 +119,8 @@ For untrusted uploads, inspect file signatures, enforce size limits, store files
 ## Contributing and support
 
 Issues and focused pull requests are welcome in the [GitHub repository](https://github.com/montasim/mime-types-lite). Data changes should cite an authoritative registry or specification, include relevant tests, and pass `pnpm check`. Read the [contribution guide](packages/mime-types-lite/CONTRIBUTING.md) for the package workflow.
+
+Optional support through [SupportKori](https://www.supportkori.com/montasim) helps fund registry research, compatibility work, documentation, and publishing infrastructure.
 
 ## Author and license
 

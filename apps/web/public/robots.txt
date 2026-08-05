@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mime-types-lite-demo.netlify.app/sitemap.xml

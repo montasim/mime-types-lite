@@ -5,17 +5,17 @@ Thanks for helping improve `mime-types-lite`.
 ## Development
 
 ```bash
-npm ci
-npm run check
+pnpm install
+pnpm check:package
 ```
 
-`npm run check` verifies formatting, lint rules, TypeScript, runtime tests, type tests, package metadata, ESM/CommonJS exports, and the contents of the npm tarball.
+`pnpm check:package` verifies formatting, lint rules, TypeScript, runtime tests, type tests, package metadata, and ESM/CommonJS exports. Run it from the repository root.
 
 ## Adding or changing a media type
 
 1. Link an authoritative source, preferably the IANA registry or the specification that owns the media type.
-2. Put preferred constants in `src/constants.ts` and historical aliases in `LEGACY_MIME`.
-3. Add extensions to `src/extensions.ts` only when the association is well established.
+2. Put preferred constants in `packages/mime-types-lite/src/constants.ts` and historical aliases in `LEGACY_MIME`.
+3. Add extensions to `packages/mime-types-lite/src/extensions.ts` only when the association is well established.
 4. Add runtime and type tests.
 5. Update the standards section of the README when behavior changes.
 

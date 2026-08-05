@@ -1,5 +1,9 @@
 node_modules/
 dist/
+.output/
+.tanstack/
+.netlify/
 coverage/
-package-lock.json
+src/routeTree.gen.ts
+pnpm-lock.yaml
 *.tgz

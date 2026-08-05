@@ -2,206 +2,126 @@
 
 [![npm version](https://img.shields.io/npm/v/mime-types-lite.svg)](https://www.npmjs.com/package/mime-types-lite)
 [![CI](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml/badge.svg)](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml)
-[![license](https://img.shields.io/npm/l/mime-types-lite.svg)](./LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-3157d5.svg)](LICENSE)
 [![Support on SupportKori](https://img.shields.io/badge/support-SupportKori-FFDD00)](https://www.supportkori.com/montasim)
 
-Tiny, zero-dependency, type-safe MIME constants and helpers for HTTP APIs, uploads, and file extensions. It gives application code a curated vocabulary without shipping a complete MIME database.
+A pnpm monorepo for the zero-dependency `mime-types-lite` TypeScript library and its interactive TanStack Start documentation site. The web app consumes the local package on every build, so API, examples, and documentation can be developed and verified together.
 
-**[Explore the live documentation](https://mime-types-lite-demo.netlify.app/docs)** · **[Try the interactive examples](https://mime-types-lite-demo.netlify.app)**
+**[Open the live documentation](https://mime-types-lite-demo.netlify.app) · [Read the package API](packages/mime-types-lite/README.md) · [Install from npm](https://www.npmjs.com/package/mime-types-lite)**
 
 ```ts
-import { MIME, fromExtension, matchesMimeType } from 'mime-types-lite';
+import { MIME, fromExtension, matchesMimeType } from "mime-types-lite";
 
 MIME.JSON; // 'application/json'
-fromExtension('reports/annual.pdf'); // 'application/pdf'
-matchesMimeType('image/png', 'image/*'); // true
+fromExtension("reports/annual.pdf"); // 'application/pdf'
+matchesMimeType("image/png", "image/*"); // true
 ```
 
-## Why this package?
+## What is included
 
-- Avoid repeated, typo-prone MIME strings.
-- Get literal TypeScript unions for both keys and values.
-- Normalize real `Content-Type` headers, including parameters.
-- Match exact media types or category wildcards such as `image/*`.
-- Look up common file extensions without a runtime dependency.
-- Use the same API from ESM, CommonJS, Node.js, or a browser bundle.
+| Workspace                  | Purpose                                                                                                | Documentation                                        |
+| -------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
+| `packages/mime-types-lite` | Published ESM/CommonJS package with constants, lookup, normalization, validation, and matching helpers | [Package README](packages/mime-types-lite/README.md) |
+| `apps/web`                 | React 19 and TanStack Start documentation site with interactive examples                               | [Web README](apps/web/README.md)                     |
 
-Use [`mime`](https://www.npmjs.com/package/mime) or [`mime-types`](https://www.npmjs.com/package/mime-types) if you need an exhaustive database. This package intentionally optimizes for a small, reviewed set of types commonly used by applications.
+The dependency direction is one-way: `apps/web` depends on `mime-types-lite` through pnpm's `workspace:*` protocol; the library never depends on the application.
 
-## Installation
+## Quick start
 
-```bash
-npm install mime-types-lite
+Prerequisites:
+
+- Node.js 20.19 or newer; `.node-version` selects Node.js 24
+- pnpm 10.17.1
+
+```sh
+git clone https://github.com/montasim/mime-types-lite.git
+cd mime-types-lite
+pnpm install
+pnpm dev
 ```
 
-## API
+The root development command first builds the local package, then starts the web app at [http://localhost:3000](http://localhost:3000). No external services are required. `apps/web/.env.example` documents the optional public canonical-site URL.
 
-### Constants
+## Install and use the package
 
-```ts
-import mimeTypesLite, {
-    JSON,
-    MIME,
-    type MimeType,
-    type MimeTypeKey,
-} from 'mime-types-lite';
+Consumers can install the published library without the web workspace:
 
-JSON; // 'application/json'
-MIME.PDF; // 'application/pdf'
-mimeTypesLite.PNG; // 'image/png' (backward-compatible default export)
-
-const key: MimeTypeKey = 'PDF';
-const value: MimeType = 'application/pdf';
+```sh
+pnpm add mime-types-lite
 ```
-
-Individual named constants are friendly to tree-shaking. `MIME` and the default export provide an immutable object for convenient dynamic lookup.
-
-### Extension lookup
-
-```ts
-import { extensionsFor, fromExtension } from 'mime-types-lite';
-
-fromExtension('.json'); // 'application/json'
-fromExtension('C:\\files\\photo.JPEG'); // 'image/jpeg'
-fromExtension('https://example.com/app.js?v=2'); // 'text/javascript'
-fromExtension('unknown.custom'); // undefined
-
-extensionsFor('image/jpeg'); // ['jpg', 'jpeg', 'jpe']
-extensionsFor('text/html; charset=utf-8'); // ['html', 'htm']
-```
-
-Lookup is based only on the filename or extension. It does not inspect file bytes.
-
-### Validation and normalization
 
 ```ts
 import {
+    MIME,
+    extensionsFor,
+    fromExtension,
     isKnownMimeType,
-    isMimeType,
-    mimeCategory,
     normalizeMimeType,
-} from 'mime-types-lite';
+} from "mime-types-lite";
 
-isMimeType('application/problem+json'); // true
-isKnownMimeType('application/json; charset=utf-8'); // true
-normalizeMimeType(' Application/JSON; charset=utf-8 '); // 'application/json'
-mimeCategory('image/svg+xml'); // 'image'
+fromExtension("avatar.JPEG"); // 'image/jpeg'
+extensionsFor(MIME.JPEG); // ['jpg', 'jpeg', 'jpe']
+normalizeMimeType("Application/JSON; charset=utf-8"); // 'application/json'
+isKnownMimeType("application/json; charset=utf-8"); // true
 ```
 
-`isMimeType` validates syntax. `isKnownMimeType` checks the smaller curated collection exported by this package.
+See the [package README](packages/mime-types-lite/README.md) for the complete API, TypeScript types, standards references, compatibility aliases, and security guidance.
 
-### Pattern matching
+## Workspace commands
 
-```ts
-import { matchesMimeType } from 'mime-types-lite';
+Run these from the repository root:
 
-matchesMimeType('image/avif', 'image/*'); // true
-matchesMimeType('application/json; charset=utf-8', 'application/json'); // true
-matchesMimeType('text/plain', 'image/*'); // false
+| Command              | Purpose                                              |
+| -------------------- | ---------------------------------------------------- |
+| `pnpm dev`           | Build the package and start the web app on port 3000 |
+| `pnpm build`         | Build the package followed by the production web app |
+| `pnpm build:package` | Build the package's ESM, CommonJS, and declarations  |
+| `pnpm build:web`     | Build the package and production web app             |
+| `pnpm test`          | Run package runtime and type tests                   |
+| `pnpm test:types`    | Run package declaration and consumer type tests      |
+| `pnpm check:package` | Run complete package validation                      |
+| `pnpm check:web`     | Build the package, then verify the web app           |
+| `pnpm check`         | Verify both workspaces                               |
+| `pnpm format`        | Format every workspace that defines a formatter      |
+| `pnpm format:check`  | Check formatting across both workspaces              |
+
+## Repository layout
+
+```text
+.
+├── apps/
+│   └── web/                       # TanStack Start site
+├── packages/
+│   └── mime-types-lite/           # Published npm package, tests, and package docs
+├── .github/workflows/             # Workspace CI and npm publishing
+├── netlify.toml                   # Monorepo-aware web deployment
+└── pnpm-workspace.yaml            # Workspace discovery and dependency overrides
 ```
 
-Supported patterns are exact media types, `type/*`, and `*/*`. This helper does not parse weighted HTTP `Accept` headers.
+## Quality and release workflow
 
-## Standards and compatibility aliases
+CI installs the frozen pnpm lockfile and runs `pnpm check` on supported Node.js versions. This covers formatting, linting, TypeScript, package runtime and type tests, export and metadata validation, and the production web build. CI also inspects the npm tarball before changes merge.
 
-The preferred constants follow the current IANA registry and relevant specifications. Notable corrections in 1.8 include:
+Package publishing remains separate from ordinary pushes. Publishing a GitHub release tagged `vX.Y.Z` runs the release workflow, validates the package in `packages/mime-types-lite`, and publishes that workspace to npm with provenance. See the [release guide](packages/mime-types-lite/RELEASING.md) and [changelog](packages/mime-types-lite/CHANGELOG.md).
 
-- JavaScript: `text/javascript` rather than obsolete `application/javascript`.
-- YAML: `application/yaml` rather than legacy `application/x-yaml`.
-- Icons: `image/vnd.microsoft.icon` rather than legacy `image/x-icon`.
-- GraphQL-over-HTTP responses: `application/graphql-response+json`.
-- Semicolon-delimited CSV remains `text/csv`; a delimiter does not define a subtype.
+## Deployment
 
-Historical values needed for interoperability live in `LEGACY_MIME`. The old `MIME.GRAPHQL` and `MIME.CSV_SEMICOLON` keys remain for migration compatibility; new code should use `MIME.GRAPHQL_RESPONSE_JSON` and `MIME.CSV`.
+The root [Netlify configuration](netlify.toml) runs `pnpm build:web` and publishes `apps/web/dist/client`. TanStack Start server output is handled by the official Netlify Vite integration. Local Netlify development runs on port 8888 and targets the Vite server on port 3000.
 
-Primary references:
+The public canonical URL defaults to `https://mime-types-lite-demo.netlify.app`. Set `VITE_SITE_URL` from [the safe example](apps/web/.env.example) when deploying at another URL.
 
-- [IANA Media Types registry](https://www.iana.org/assignments/media-types/media-types.xhtml)
-- [RFC 9239: JavaScript media types](https://www.rfc-editor.org/rfc/rfc9239)
-- [RFC 9512: YAML media type](https://www.rfc-editor.org/rfc/rfc9512)
-- [GraphQL over HTTP](https://graphql.github.io/graphql-over-http/draft/)
+## Scope and security
 
-## Security
+`mime-types-lite` intentionally provides a small, curated set of media types rather than an exhaustive MIME database. A filename extension, browser `File.type`, or HTTP `Content-Type` value can be incorrect or attacker-controlled; these helpers do not inspect file bytes and must not be used as proof of file contents.
 
-A filename extension, browser `File.type`, or HTTP `Content-Type` header can be incorrect or attacker-controlled. Do not use this package as proof of a file's contents. For untrusted uploads, also inspect file signatures, enforce size limits, store files safely, and process them with hardened tooling.
+For untrusted uploads, inspect file signatures, enforce size limits, store files safely, and use hardened processing tools. Report vulnerabilities privately according to the [security policy](packages/mime-types-lite/SECURITY.md).
 
-See [SECURITY.md](./SECURITY.md) for vulnerability reporting.
+## Contributing and support
 
-## Support policy
+Issues and focused pull requests are welcome in the [GitHub repository](https://github.com/montasim/mime-types-lite). Data changes should cite an authoritative registry or specification, include relevant tests, and pass `pnpm check`. Read the [contribution guide](packages/mime-types-lite/CONTRIBUTING.md) for the package workflow.
 
-- Node.js 20 or newer
-- Modern browser bundlers
-- ESM and CommonJS
-- TypeScript declarations included
-- No runtime dependencies
+Optional support through [SupportKori](https://www.supportkori.com/montasim) helps fund registry research, compatibility work, documentation, and publishing infrastructure.
 
-The published package includes both ESM and CommonJS entry points plus TypeScript declarations. Importing it does not access the filesystem, network, browser globals, or environment variables.
+## Author and license
 
-## Configuration
-
-The package requires no environment variables, accounts, network services, storage, or initialization. Pass filenames, extensions, media types, and match patterns directly to the helpers. The curated registry is compiled into the package; consumers cannot extend it globally at runtime, which keeps behavior deterministic across an application.
-
-## Versioning and releases
-
-Review [CHANGELOG.md](./CHANGELOG.md) before upgrading. Corrected standards values may require consumers to migrate to a replacement constant; compatibility aliases are documented and retained where the public API permits. Releases are validated through the repository's CI and release workflows, including package-shape checks and a dry-run archive inspection.
-
-The default `main` branch and its changelog currently describe `1.8.0`, while npm publishes `1.9.0` from the repository's `v2` branch. The `v2` changelog records the `1.9.0` homepage update. Treat the dynamic npm badge as the registry version and the checked-in `main` files as the default-branch development state; reconcile the branches before preparing another release from `main`.
-
-CI validates its configured Node.js matrix, while a release re-runs the complete checks and publishes with npm provenance. Registry users should compare the npm version with the relevant branch and changelog rather than assuming `main/package.json` always matches the latest published artifact.
-
-## Development
-
-Use Node.js `^20.19.0`, `^22.13.0`, or `>=24`. Those are the runtime ranges required by the current ESLint 10 contributor toolchain; `.node-version` selects Node.js 24. This is more specific than the package's Node.js 20 consumer floor.
-
-```bash
-git clone https://github.com/montasim/mime-types-lite.git
-cd mime-types-lite
-npm ci
-npm run check
-```
-
-| Command                    | Purpose                                                    |
-| -------------------------- | ---------------------------------------------------------- |
-| `npm run build`            | Build ESM, CommonJS, and TypeScript declaration output     |
-| `npm run typecheck`        | Type-check source without emitting files                   |
-| `npm test`                 | Build and run runtime plus public-type tests               |
-| `npm run test:types`       | Validate the public TypeScript surface                     |
-| `npm run lint`             | Check source and configuration with ESLint                 |
-| `npm run format:check`     | Verify Prettier formatting                                 |
-| `npm run validate:package` | Build and smoke-test the published package shape           |
-| `npm run check`            | Run formatting, lint, types, tests, and package validation |
-| `npm run release:check`    | Run all checks and inspect an npm pack dry run             |
-
-## Documentation map
-
-- [Live documentation and examples](https://mime-types-lite-demo.netlify.app/docs)
-- [Constants](#constants), [extension lookup](#extension-lookup), [validation](#validation-and-normalization), and [matching](#pattern-matching)
-- [Standards and aliases](#standards-and-compatibility-aliases)
-- [Security guidance](#security) and [private reporting policy](SECURITY.md)
-- [Release history](CHANGELOG.md)
-- [Contribution guide](CONTRIBUTING.md)
-- [Issue tracker](https://github.com/montasim/mime-types-lite/issues)
-
-## Contributing
-
-Data additions should include an authoritative specification or registry reference and tests for every relevant extension. See [CONTRIBUTING.md](./CONTRIBUTING.md).
-
-Use [GitHub Issues](https://github.com/montasim/mime-types-lite/issues) for reproducible bugs or focused API proposals. Report vulnerabilities privately through [SECURITY.md](./SECURITY.md).
-
-The repository includes contribution and security policies but does not currently include a separate `CODE_OF_CONDUCT.md`. Keep participation technical and respectful, and follow the evidence requirements in [CONTRIBUTING.md](./CONTRIBUTING.md) for registry changes.
-
-## Support
-
-If this project has been useful, you can support its continued maintenance:
-
-[![Support me on SupportKori](https://img.shields.io/badge/Support%20me-SupportKori-FFDD00?style=flat-square)](https://www.supportkori.com/montasim)
-
-Funding is optional and supports registry research, compatibility work, documentation, and publishing infrastructure.
-
-## Author
-
-Created and maintained by [Mohammad Montasim Al Mamun Shuvo](https://github.com/montasim).
-
-## License
-
-[MIT](./LICENSE) © Mohammad Montasim Al Mamun Shuvo
+Created and maintained by [Mohammad Montasim Al Mamun Shuvo](https://github.com/montasim). Licensed under the [MIT License](LICENSE).

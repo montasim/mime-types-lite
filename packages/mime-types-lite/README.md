@@ -1,10 +1,13 @@
 # mime-types-lite
 
+[![Support on SupportKori](https://img.shields.io/badge/support-SupportKori-FFDD00)](https://www.supportkori.com/montasim)
 [![npm version](https://img.shields.io/npm/v/mime-types-lite.svg)](https://www.npmjs.com/package/mime-types-lite)
 [![CI](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml/badge.svg)](https://github.com/montasim/mime-types-lite/actions/workflows/ci.yml)
 [![license](https://img.shields.io/npm/l/mime-types-lite.svg)](./LICENSE)
 
 Tiny, zero-dependency, type-safe MIME constants and helpers for HTTP APIs, uploads, and file extensions. It gives application code a curated vocabulary without shipping a complete MIME database.
+
+**[Explore the live documentation](https://mime-types-lite.netlify.app/docs) · [Try the interactive examples](https://mime-types-lite.netlify.app) · [Report an issue](https://github.com/montasim/mime-types-lite/issues)**
 
 ```ts
 import { MIME, fromExtension, matchesMimeType } from 'mime-types-lite';
@@ -132,9 +135,50 @@ See [SECURITY.md](./SECURITY.md) for vulnerability reporting.
 - TypeScript declarations included
 - No runtime dependencies
 
+The package requires no environment variables, accounts, network services, storage, or initialization. Importing it does not access the filesystem, network, browser globals, or environment variables.
+
+## Development and verification
+
+Use Node.js 20.19 or newer and pnpm 10.17.1. Clone and bootstrap the monorepo from its root:
+
+```bash
+git clone https://github.com/montasim/mime-types-lite.git
+cd mime-types-lite
+pnpm install
+pnpm check:package
+```
+
+| Root command         | Purpose                                                       |
+| -------------------- | ------------------------------------------------------------- |
+| `pnpm build:package` | Build ESM, CommonJS, and TypeScript declarations              |
+| `pnpm test`          | Run runtime and public-type tests                             |
+| `pnpm test:types`    | Validate the public TypeScript surface                        |
+| `pnpm check:package` | Run formatting, linting, types, tests, and package validation |
+| `pnpm release:check` | Run package checks and inspect an npm pack dry run            |
+
+CI runs the full monorepo check on Node.js 20, 22, and 24. Package validation checks metadata and packed ESM/CommonJS consumer behavior with `publint` and `@arethetypeswrong/cli`.
+
+## Releases
+
+The package is published independently from `packages/mime-types-lite`. Publishing a GitHub release tagged `vX.Y.Z` runs the release workflow and publishes to npm with provenance. Review the [changelog](./CHANGELOG.md) and [release guide](./RELEASING.md) before preparing a version.
+
 ## Contributing
 
-Data additions should include an authoritative specification or registry reference and tests for every relevant extension. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+Data additions should include an authoritative specification or registry reference and tests for every relevant extension. See the [contribution guide](./CONTRIBUTING.md), use [GitHub Issues](https://github.com/montasim/mime-types-lite/issues) for reproducible bugs and focused proposals, and report vulnerabilities privately through the [security policy](./SECURITY.md).
+
+The repository does not currently include a separate code of conduct. Keep participation technical and respectful and follow the evidence requirements in the contribution guide.
+
+## Funding
+
+Optional support through [SupportKori](https://www.supportkori.com/montasim) helps fund registry research, compatibility work, documentation, and publishing infrastructure.
+
+[![Support mime-types-lite on SupportKori](https://img.shields.io/badge/Support_mime--types--lite-SupportKori-FFDD00?style=for-the-badge)](https://www.supportkori.com/montasim)
+
+Bug reports, code contributions, documentation improvements, and feedback are equally valuable ways to support the project.
+
+## Author
+
+Created and maintained by [Mohammad Montasim Al Mamun Shuvo](https://github.com/montasim).
 
 ## License
 

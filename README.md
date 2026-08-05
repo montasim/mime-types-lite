@@ -7,7 +7,7 @@
 
 A pnpm monorepo for the zero-dependency `mime-types-lite` TypeScript library and its interactive TanStack Start documentation site. The web app consumes the local package on every build, so API, examples, and documentation can be developed and verified together.
 
-**[Open the live documentation](https://mime-types-lite-demo.netlify.app) · [Read the package API](packages/mime-types-lite/README.md) · [Install from npm](https://www.npmjs.com/package/mime-types-lite)**
+**[Open the live documentation](https://mime-types-lite.netlify.app) · [Read the package API](packages/mime-types-lite/README.md) · [Install from npm](https://www.npmjs.com/package/mime-types-lite)**
 
 ```ts
 import { MIME, fromExtension, matchesMimeType } from "mime-types-lite";
@@ -40,7 +40,7 @@ pnpm install
 pnpm dev
 ```
 
-The root development command first builds the local package, then starts the web app at [http://localhost:3000](http://localhost:3000). No external services are required. `apps/web/.env.example` documents the optional public canonical-site URL.
+The root development command first builds the local package, then starts the web app at [http://localhost:3000](http://localhost:3000). No environment variables or external services are required.
 
 ## Install and use the package
 
@@ -108,7 +108,7 @@ Package publishing remains separate from ordinary pushes. Publishing a GitHub re
 
 The root [Netlify configuration](netlify.toml) runs `pnpm build:web` and publishes `apps/web/dist/client`. TanStack Start server output is handled by the official Netlify Vite integration. Local Netlify development runs on port 8888 and targets the Vite server on port 3000.
 
-The public canonical URL defaults to `https://mime-types-lite-demo.netlify.app`. Set `VITE_SITE_URL` from [the safe example](apps/web/.env.example) when deploying at another URL.
+The public canonical URL is `https://mime-types-lite.netlify.app`. When deploying at another URL, update `apps/web/src/config/site.ts`, `apps/web/vite.config.ts`, and `apps/web/public/robots.txt` together.
 
 ## Scope and security
 

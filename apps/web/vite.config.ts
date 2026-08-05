@@ -18,7 +18,7 @@ export default defineConfig({
       },
       sitemap: {
         enabled: true,
-        host: 'https://mime-types-lite-demo.netlify.app',
+        host: 'https://mime-types-lite.netlify.app',
       },
     }),
     netlify(),

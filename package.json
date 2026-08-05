@@ -46,6 +46,6 @@
   "bugs": {
     "url": "https://github.com/montasim/mime-types-lite/issues"
   },
-  "homepage": "https://mime-types-lite-demo.netlify.app",
+  "homepage": "https://mime-types-lite.netlify.app",
   "packageManager": "pnpm@10.17.1"
 }

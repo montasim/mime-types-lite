@@ -6,7 +6,7 @@ All notable changes are documented here. The project follows [Semantic Versionin
 
 ### Changed
 
-- Updated the package homepage to the hosted demo at https://mime-types-lite-demo.netlify.app.
+- Updated the package homepage to the hosted documentation at https://mime-types-lite.netlify.app.
 
 ## 1.8.0
 

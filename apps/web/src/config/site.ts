@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://mime-types-lite-demo.netlify.app';
+export const SITE_URL = 'https://mime-types-lite.netlify.app';
 export const PACKAGE_NAME = 'mime-types-lite';
 export const PACKAGE_VERSION = '1.9.0';
 export const GITHUB_URL = 'https://github.com/montasim/mime-types-lite';

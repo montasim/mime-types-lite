@@ -71,7 +71,7 @@
   "bugs": {
     "url": "https://github.com/montasim/mime-types-lite/issues"
   },
-  "homepage": "https://mime-types-lite-demo.netlify.app",
+  "homepage": "https://mime-types-lite.netlify.app",
   "publishConfig": {
     "access": "public",
     "provenance": true

@@ -100,7 +100,7 @@ SSR routes and server functions are emitted through Netlify’s generated server
 
 ## Related links
 
-- [Live site](https://mime-types-lite-demo.netlify.app)
+- [Live site](https://mime-types-lite.netlify.app)
 - [`mime-types-lite` on npm](https://www.npmjs.com/package/mime-types-lite)
 - [`mime-types-lite` source](https://github.com/montasim/mime-types-lite)
 - [Issue tracker](https://github.com/montasim/mime-types-lite/issues)

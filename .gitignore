@@ -1,5 +1,12 @@
+# Dependencies
 node_modules/
+
+# Builds and generated output
 dist/
+.output/
+.tanstack/
+.vite/
+routeTree.gen.ts
 coverage/
 *.tgz
 *.tsbuildinfo
@@ -7,7 +14,12 @@ coverage/
 
 .DS_Store
 .idea/
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 .env
 .env.*
 !.env.example
+
+# Netlify
+.netlify/

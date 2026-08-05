@@ -1,0 +1,17 @@
+{
+  "name": "mime-types-lite documentation",
+  "short_name": "mime-types-lite",
+  "description": "Type-safe MIME constants and helpers for TypeScript applications.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f6f1",
+  "theme_color": "#3157d5",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

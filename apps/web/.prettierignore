@@ -1,0 +1,67 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build outputs
+dist
+.netlify
+.tanstack
+
+# Cache
+.cache
+.parcel-cache
+.eslintcache
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing
+coverage
+.nyc_output
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Generated files
+src/routeTree.gen.ts
+*.tsbuildinfo
+*.min.js
+*.min.css
+
+# Static assets (don't need formatting)
+public/**
+!.env.example
+
+# Documentation
+LICENSE
+CHANGELOG.md
+
+# Misc
+.vercel
+!.prettierignore
+.prettierignore

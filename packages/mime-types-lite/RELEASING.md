@@ -12,17 +12,17 @@ Configure an npm trusted publisher for:
 
 Trusted publishing allows GitHub Actions to publish with short-lived OIDC credentials and provenance instead of a long-lived npm token.
 
-## Publish 1.8.0
+## Publish a version
 
-1. Merge the `v2` branch after CI passes.
-2. Confirm `package.json` contains `1.8.0` and `npm view mime-types-lite version` still reports `1.7.5`.
-3. Create and publish a GitHub release tagged `v1.8.0` from `main`.
+1. Merge the release change after CI passes.
+2. Confirm `packages/mime-types-lite/package.json` contains the intended version and that the version is not already published on npm.
+3. Create and publish a GitHub release tagged `vX.Y.Z` from `main`, matching the package version.
 4. Watch the **Publish package** workflow.
 5. Verify the installed artifact:
 
     ```bash
-    npm view mime-types-lite@1.8.0
-    npm install mime-types-lite@1.8.0
+    npm view mime-types-lite@X.Y.Z
+    npm install mime-types-lite@X.Y.Z
     ```
 
 For a retry that does not require recreating the release, run the workflow manually from `main`. npm versions are immutable, so a version that reached the registry cannot be republished.

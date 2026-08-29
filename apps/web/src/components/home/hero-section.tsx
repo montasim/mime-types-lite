@@ -14,20 +14,20 @@ export function HeroSection() {
         <div className="mb-5 flex flex-wrap items-center gap-2">
           <Badge
             variant="outline"
-            className="gap-2 rounded-sm font-mono text-[9px] tracking-wider uppercase"
+            className="gap-2 rounded-sm font-mono text-[10px] leading-4 tracking-wider uppercase"
           >
             <span className="size-1.5 rounded-full bg-success" /> v{PACKAGE_VERSION}
           </Badge>
-          <span className="font-mono text-[9px] tracking-wider text-muted-foreground uppercase">
+          <span className="font-mono text-[10px] leading-4 tracking-wider text-muted-foreground uppercase">
             zero dependencies · Node 20+
           </span>
         </div>
-        <h1 className="max-w-2xl text-5xl leading-[0.94] font-black tracking-[-0.055em] uppercase sm:text-6xl lg:text-7xl">
+        <h1 className="max-w-2xl text-[clamp(2.125rem,4vw,2.875rem)] leading-[1.02] font-bold tracking-[-0.02em] uppercase">
           Know what
           <br />
           <span className="text-primary">you’re sending.</span>
         </h1>
-        <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
+        <p className="mt-6 max-w-[65ch] text-base leading-[1.625] text-muted-foreground">
           A small, reviewed vocabulary of MIME constants and practical helpers for headers, uploads,
           URLs, and file extensions.
         </p>

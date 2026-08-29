@@ -58,15 +58,19 @@ export function ApiSection() {
               key={feature.title}
               className="flex min-h-[350px] flex-col border-r border-b border-border p-6"
             >
-              <h3 className="text-2xl font-black tracking-tight uppercase">{feature.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">{feature.description}</p>
-              <pre className="mt-6 flex-1 overflow-x-auto bg-code p-4 font-mono text-[11px] leading-6 text-code-foreground">
+              <h3 className="text-lg leading-[1.3] font-semibold tracking-[-0.01em] uppercase">
+                {feature.title}
+              </h3>
+              <p className="mt-3 text-sm leading-[1.55] text-muted-foreground">
+                {feature.description}
+              </p>
+              <pre className="mt-6 flex-1 overflow-x-auto bg-code p-4 font-mono text-xs leading-5 text-code-foreground">
                 <code>{feature.code}</code>
               </pre>
               <Link
                 to="/docs"
                 hash={feature.anchor}
-                className="mt-5 inline-flex items-center gap-3 font-mono text-[10px] font-bold text-primary"
+                className="mt-5 inline-flex items-center gap-3 font-mono text-xs leading-[1.5] font-semibold text-primary"
               >
                 {feature.anchor} <ArrowRight className="size-3" />
               </Link>

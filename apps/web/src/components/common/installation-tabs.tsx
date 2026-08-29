@@ -43,7 +43,7 @@ export function InstallationTabs({ className }: InstallationTabsProps) {
           <TabsTrigger
             key={value}
             value={value}
-            className="border-r border-white/10 px-3 py-3 font-mono text-[10px] font-bold text-white/45 last:border-0 data-[state=active]:bg-white/6 data-[state=active]:text-white"
+            className="border-r border-white/10 px-3 py-3 font-mono text-[10px] leading-4 font-semibold text-white/45 last:border-0 data-[state=active]:bg-white/6 data-[state=active]:text-white"
           >
             {value === 'bun' ? 'Bun' : value}
           </TabsTrigger>
@@ -53,7 +53,7 @@ export function InstallationTabs({ className }: InstallationTabsProps) {
         <TabsContent key={value} value={value} className="m-0">
           <div className="flex min-h-20 items-center gap-3 px-5">
             <span className="font-mono font-bold text-signal">$</span>
-            <code className="min-w-0 flex-1 overflow-x-auto font-mono text-xs whitespace-nowrap sm:text-sm">
+            <code className="min-w-0 flex-1 overflow-x-auto font-mono text-sm leading-5 whitespace-nowrap">
               {command}
             </code>
             <Button

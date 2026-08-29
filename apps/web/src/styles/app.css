@@ -2,18 +2,18 @@
 
 :root {
   --background: #f5f6f1;
-  --foreground: #15191d;
+  --foreground: #343a40;
   --card: #fcfdf9;
-  --card-foreground: #15191d;
+  --card-foreground: #343a40;
   --primary: #3157d5;
   --primary-foreground: #ffffff;
   --secondary: #e9ebe6;
-  --secondary-foreground: #15191d;
+  --secondary-foreground: #343a40;
   --muted: #e9ebe6;
   --muted-foreground: #626970;
   --border: #d8dbd4;
   --ring: #3157d5;
-  --code: #111820;
+  --code: #24303b;
   --code-foreground: #dce5ec;
   --route-shadow: #e8edff;
   --signal: #f2763f;
@@ -43,7 +43,7 @@
   --color-signal-soft: var(--signal-soft);
   --color-signal-foreground: var(--signal-foreground);
   --color-success: var(--success);
-  --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'SFMono-Regular', 'Cascadia Code', Consolas, monospace;
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
@@ -63,6 +63,11 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
 button,
 a {
   -webkit-tap-highlight-color: transparent;
@@ -76,13 +81,15 @@ a {
     @apply mx-auto w-[min(1180px,calc(100vw-2rem))] sm:w-[min(1180px,calc(100vw-3rem))];
   }
   .section-kicker {
-    @apply m-0 font-mono text-[9px] font-bold tracking-[0.12em] text-primary uppercase;
+    @apply m-0 font-mono text-[10px] leading-4 font-semibold tracking-[0.08em] text-primary uppercase;
   }
   .section-title {
-    @apply mt-3 text-4xl leading-[0.96] font-black tracking-[-0.045em] uppercase sm:text-5xl;
+    @apply mt-3 font-bold tracking-[-0.015em] uppercase;
+    font-size: clamp(1.5rem, 2.3vw, 1.875rem);
+    line-height: 1.1;
   }
   .section-copy {
-    @apply mt-5 max-w-xl text-sm leading-7 text-muted-foreground;
+    @apply mt-5 max-w-[65ch] text-base leading-[1.625] text-muted-foreground;
   }
   .docs-section {
     @apply pb-14;
@@ -114,5 +121,55 @@ a {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+body .sk-widget-btn {
+  min-width: 0;
+  min-height: 42px;
+  padding: 9px 15px;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--primary);
+  box-shadow: 5px 5px 0 var(--route-shadow);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+}
+
+body .sk-widget-btn svg {
+  width: 18px;
+  height: 18px;
+  color: inherit;
+}
+
+body .sk-widget-btn:hover {
+  border-color: var(--primary);
+  background: var(--route-shadow);
+  color: var(--primary);
+  transform: translate(-1px, -1px);
+  box-shadow: 7px 7px 0 var(--signal-soft);
+}
+
+body .sk-widget-btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  body .sk-widget-btn {
+    right: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+
+  body .sk-widget-iframe-container {
+    right: 16px;
+    bottom: calc(70px + env(safe-area-inset-bottom));
+    left: 16px;
+    width: auto;
+    max-width: none;
+    height: min(550px, calc(100svh - 102px));
   }
 }
